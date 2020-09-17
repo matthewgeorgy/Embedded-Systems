@@ -1,0 +1,2900 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.83 build 10920 
+                                                                                               Mon Jan 07 10:29:32 2019
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 10920"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F690
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 9 "E:\cPrograms\rea\finalfinal.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 9 "E:\cPrograms\really not pr0n\finalfinal.c"
+    45  2007  F0D4               	dw 0xFFFC & 0xFFF7 & 0xFFFF & 0xFFDF & 0xFFFF & 0xFFFF & 0xFCFF & 0xFBFF & 0xF7FF ;#
+    46                           	FNCALL	_main,_init_hardware
+    47                           	FNCALL	_main,___awmod
+    48                           	FNROOT	_main
+    49                           	global	_onBlack
+    50                           psect	idataCOMMON,class=CODE,space=0,delta=2
+    51                           global __pidataCOMMON
+    52  036C                     __pidataCOMMON:
+    53                           	file	"E:\cPrograms\really not pr0n\finalfinal.c"
+    54                           	line	18
+    55                           
+    56                           ;initializer for _onBlack
+    57  036C  3401               	retlw	01h
+    58  036D  3400               	retlw	0
+    59                           
+    60                           	global	_lines
+    61                           	global	_leftSensor
+    62                           	global	_timer
+    63                           	global	_rightSensor
+    64                           	global	_ADCON0
+    65  001F                     _ADCON0	set	31
+    66                           	global	_ADCON0bits
+    67  001F                     _ADCON0bits	set	31
+    68                           	global	_ADRESH
+    69  001E                     _ADRESH	set	30
+    70                           	global	_PORTA
+    71  0005                     _PORTA	set	5
+    72                           	global	_PORTB
+    73  0006                     _PORTB	set	6
+    74                           	global	_PORTC
+    75  0007                     _PORTC	set	7
+    76                           	global	_CARRY
+    77  0018                     _CARRY	set	24
+    78                           	global	_GIE
+    79  005F                     _GIE	set	95
+    80                           	global	_GO_DONE
+    81  00F9                     _GO_DONE	set	249
+    82                           	global	_RC0
+    83  0038                     _RC0	set	56
+    84                           	global	_RC1
+    85  0039                     _RC1	set	57
+    86                           	global	_RC3
+    87  003B                     _RC3	set	59
+    88                           	global	_RC4
+    89  003C                     _RC4	set	60
+    90                           	global	_RC5
+    91  003D                     _RC5	set	61
+    92                           	global	_RC6
+    93  003E                     _RC6	set	62
+    94                           	global	_RC7
+    95  003F                     _RC7	set	63
+    96                           	global	_TRISA
+    97  0085                     _TRISA	set	133
+    98                           	global	_TRISB
+    99  0086                     _TRISB	set	134
+   100                           	global	_TRISC
+   101  0087                     _TRISC	set	135
+   102                           	global	_ANSEL
+   103  011E                     _ANSEL	set	286
+   104                           	global	_ANSELH
+   105  011F                     _ANSELH	set	287
+   106                           	global	_EEADR
+   107  010D                     _EEADR	set	269
+   108                           	global	_EEDATA
+   109  010C                     _EEDATA	set	268
+   110                           	global	_EECON1
+   111  018C                     _EECON1	set	396
+   112                           	global	_EECON2
+   113  018D                     _EECON2	set	397
+   114                           	global	_RD
+   115  0C60                     _RD	set	3168
+   116                           	global	_WR
+   117  0C61                     _WR	set	3169
+   118                           	global	_WREN
+   119  0C62                     _WREN	set	3170
+   120                           	file	"really not pr0n.as"
+   121                           	line	#
+   122                           psect cinit,class=CODE,delta=2
+   123                           global start_initialization
+   124  036E                     start_initialization:
+   125                           
+   126                           psect	bssCOMMON,class=COMMON,space=1
+   127                           global __pbssCOMMON
+   128  007D                     __pbssCOMMON:
+   129  007D                     _rightSensor:
+   130  007D                            ds      1
+   131                           
+   132                           psect	dataCOMMON,class=COMMON,space=1
+   133                           global __pdataCOMMON
+   134  007B                     __pdataCOMMON:
+   135                           	file	"E:\cPrograms\really not pr0n\finalfinal.c"
+   136  007B                     _onBlack:
+   137  007B                            ds      2
+   138                           
+   139                           psect	bssBANK0,class=BANK0,space=1
+   140                           global __pbssBANK0
+   141  0020                     __pbssBANK0:
+   142  0020                     _lines:
+   143  0020                            ds      2
+   144                           
+   145  0022                     _leftSensor:
+   146  0022                            ds      1
+   147                           
+   148  0023                     _timer:
+   149  0023                            ds      1
+   150                           
+   151                           ; Clear objects allocated to COMMON
+   152                           psect cinit,class=CODE,delta=2
+   153  036E  01FD               	clrf	((__pbssCOMMON)+0)&07Fh
+   154                           ; Clear objects allocated to BANK0
+   155                           psect cinit,class=CODE,delta=2
+   156  036F  01A0               	clrf	((__pbssBANK0)+0)&07Fh
+   157  0370  01A1               	clrf	((__pbssBANK0)+1)&07Fh
+   158  0371  01A2               	clrf	((__pbssBANK0)+2)&07Fh
+   159  0372  01A3               	clrf	((__pbssBANK0)+3)&07Fh
+   160                           ; Initialize objects allocated to COMMON
+   161                           	global __pidataCOMMON
+   162                           psect cinit,class=CODE,delta=2
+   163  0373  118A  236C  118A   	fcall	__pidataCOMMON+0		;fetch initializer
+   164  0376  00FB               	movwf	__pdataCOMMON+0&07fh		
+   165  0377  118A  236D  118A   	fcall	__pidataCOMMON+1		;fetch initializer
+   166  037A  00FC               	movwf	__pdataCOMMON+1&07fh		
+   167                           psect cinit,class=CODE,delta=2
+   168                           global end_of_initialization
+   169                           
+   170                           ;End of C runtime variable initialization code
+   171                           
+   172  037B                     end_of_initialization:
+   173  037B  0183               clrf status
+   174  037C  118A  2BFA         ljmp _main	;jump to C main() function
+   175                           psect	cstackCOMMON,class=COMMON,space=1
+   176                           global __pcstackCOMMON
+   177  0070                     __pcstackCOMMON:
+   178                           	global	?_init_hardware
+   179  0070                     ?_init_hardware:	; 0 bytes @ 0x0
+   180                           	global	??_init_hardware
+   181  0070                     ??_init_hardware:	; 0 bytes @ 0x0
+   182                           	global	?_main
+   183  0070                     ?_main:	; 0 bytes @ 0x0
+   184                           	global	?___awmod
+   185  0070                     ?___awmod:	; 2 bytes @ 0x0
+   186                           	global	___awmod@divisor
+   187  0070                     ___awmod@divisor:	; 2 bytes @ 0x0
+   188  0070                     	ds	2
+   189                           	global	___awmod@dividend
+   190  0072                     ___awmod@dividend:	; 2 bytes @ 0x2
+   191  0072                     	ds	2
+   192                           	global	??___awmod
+   193  0074                     ??___awmod:	; 0 bytes @ 0x4
+   194  0074                     	ds	1
+   195                           	global	___awmod@counter
+   196  0075                     ___awmod@counter:	; 1 bytes @ 0x5
+   197  0075                     	ds	1
+   198                           	global	___awmod@sign
+   199  0076                     ___awmod@sign:	; 1 bytes @ 0x6
+   200  0076                     	ds	1
+   201                           	global	??_main
+   202  0077                     ??_main:	; 0 bytes @ 0x7
+   203  0077                     	ds	3
+   204                           	global	main@index
+   205  007A                     main@index:	; 1 bytes @ 0xA
+   206  007A                     	ds	1
+   207 ;;Data sizes: Strings 0, constant 0, data 2, bss 5, persistent 0 stack 0
+   208 ;;Auto spaces:   Size  Autos    Used
+   209 ;; COMMON          14     11      14
+   210 ;; BANK0           80      0       4
+   211 ;; BANK1           80      0       0
+   212 ;; BANK2           80      0       0
+   213                           
+   214 ;;
+   215 ;; Pointer list with targets:
+   216                           
+   217 ;; ?___awmod	int  size(1) Largest target is 0
+   218 ;;
+   219                           
+   220                           
+   221 ;;
+   222 ;; Critical Paths under _main in COMMON
+   223 ;;
+   224 ;;   _main->___awmod
+   225 ;;
+   226 ;; Critical Paths under _main in BANK0
+   227 ;;
+   228 ;;   None.
+   229 ;;
+   230 ;; Critical Paths under _main in BANK1
+   231 ;;
+   232 ;;   None.
+   233 ;;
+   234 ;; Critical Paths under _main in BANK2
+   235 ;;
+   236 ;;   None.
+   237                           
+   238 ;;
+   239 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   240 ;;
+   241                           
+   242 ;;
+   243 ;;Call Graph Tables:
+   244 ;;
+   245 ;; ---------------------------------------------------------------------------------
+   246 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   247 ;; ---------------------------------------------------------------------------------
+   248 ;; (0) _main                                                 4     4      0     320
+   249 ;;                                              7 COMMON     4     4      0
+   250 ;;                      _init_hardware
+   251 ;;                            ___awmod
+   252 ;; ---------------------------------------------------------------------------------
+   253 ;; (1) ___awmod                                              7     3      4     296
+   254 ;;                                              0 COMMON     7     3      4
+   255 ;; ---------------------------------------------------------------------------------
+   256 ;; (1) _init_hardware                                        0     0      0       0
+   257 ;; ---------------------------------------------------------------------------------
+   258 ;; Estimated maximum stack depth 1
+   259 ;; ---------------------------------------------------------------------------------
+   260                           
+   261 ;; Call Graph Graphs:
+   262                           
+   263 ;; _main (ROOT)
+   264 ;;   _init_hardware
+   265 ;;   ___awmod
+   266 ;;
+   267                           
+   268 ;; Address spaces:
+   269                           
+   270 ;;Name               Size   Autos  Total    Cost      Usage
+   271 ;;SFR3                 0      0       0       4        0.0%
+   272 ;;BITSFR3              0      0       0       4        0.0%
+   273 ;;BANK2               50      0       0       7        0.0%
+   274 ;;BITBANK2            50      0       0       6        0.0%
+   275 ;;SFR2                 0      0       0       5        0.0%
+   276 ;;BITSFR2              0      0       0       5        0.0%
+   277 ;;SFR1                 0      0       0       2        0.0%
+   278 ;;BITSFR1              0      0       0       2        0.0%
+   279 ;;BANK1               50      0       0       5        0.0%
+   280 ;;BITBANK1            50      0       0       4        0.0%
+   281 ;;CODE                 0      0       0       0        0.0%
+   282 ;;DATA                 0      0      13      10        0.0%
+   283 ;;ABS                  0      0      12       8        0.0%
+   284 ;;NULL                 0      0       0       0        0.0%
+   285 ;;STACK                0      0       1       2        0.0%
+   286 ;;BANK0               50      0       4       3        5.0%
+   287 ;;BITBANK0            50      0       0       9        0.0%
+   288 ;;SFR0                 0      0       0       1        0.0%
+   289 ;;BITSFR0              0      0       0       1        0.0%
+   290 ;;COMMON               E      B       E       1      100.0%
+   291 ;;BITCOMMON            E      0       0       0        0.0%
+   292 ;;EEDATA             100      0       0       0        0.0%
+   293                           
+   294                           	global	_main
+   295                           psect	maintext,global,class=CODE,delta=2
+   296                           global __pmaintext
+   297  03FA                     __pmaintext:
+   298                           
+   299 ;; *************** function _main *****************
+   300 ;; Defined at:
+   301 ;;		line 26 in file "E:\cPrograms\really not pr0n\finalfinal.c"
+   302 ;; Parameters:    Size  Location     Type
+   303 ;;		None
+   304 ;; Auto vars:     Size  Location     Type
+   305 ;;  index           1   10[COMMON] unsigned char 
+   306 ;; Return value:  Size  Location     Type
+   307 ;;		None               void
+   308 ;; Registers used:
+   309 ;;		wreg, status,2, status,0, pclath, cstack
+   310 ;; Tracked objects:
+   311 ;;		On entry : 17F/0
+   312 ;;		On exit  : 0/0
+   313 ;;		Unchanged: 0/0
+   314 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   315 ;;      Params:         0       0       0       0
+   316 ;;      Locals:         1       0       0       0
+   317 ;;      Temps:          3       0       0       0
+   318 ;;      Totals:         4       0       0       0
+   319 ;;Total ram usage:        4 bytes
+   320 ;; Hardware stack levels required when called:    1
+   321 ;; This function calls:
+   322 ;;		_init_hardware
+   323 ;;		___awmod
+   324 ;; This function is called by:
+   325 ;;		Startup code after reset
+   326 ;; This function uses a non-reentrant model
+   327 ;;
+   328                           psect	maintext
+   329                           	file	"E:\cPrograms\really not pr0n\finalfinal.c"
+   330                           	line	26
+   331                           	global	__size_of_main
+   332  0406                     	__size_of_main	equ	__end_of_main-_main
+   333                           	
+   334  03FA                     _main:	
+   335                           	opt	stack 7
+   336                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   337                           	line	27
+   338                           	
+   339  03FA                     l3398:	
+   340                           ;finalfinal.c: 27: PORTC=0b00000000;
+   341  03FA  1283               	bcf	status, 5	;RP0=0, select bank0
+   342  03FB  1303               	bcf	status, 6	;RP1=0, select bank0
+   343  03FC  0187               	clrf	(7)	;volatile
+   344                           	line	28
+   345                           	
+   346  03FD                     l3400:	
+   347                           ;finalfinal.c: 28: init_hardware();
+   348  03FD  118A  237E  118A   	fcall	_init_hardware
+   349  0400  2C01               	goto	l3402
+   350                           	line	29
+   351                           ;finalfinal.c: 29: while(1){
+   352                           	
+   353  0401                     l901:	
+   354                           	line	30
+   355                           	
+   356  0401                     l3402:	
+   357                           ;finalfinal.c: 30: PORTC=0b00000000;
+   358  0401  1283               	bcf	status, 5	;RP0=0, select bank0
+   359  0402  1303               	bcf	status, 6	;RP1=0, select bank0
+   360  0403  0187               	clrf	(7)	;volatile
+   361                           	line	32
+   362                           	
+   363  0404                     l3404:	
+   364                           ;finalfinal.c: 32: ADCON0bits. CHS=0B1011;
+   365  0404  081F               	movf	(31),w	;volatile
+   366  0405  39C3               	andlw	not (((1<<4)-1)<<2)
+   367  0406  382C               	iorlw	(0Bh & ((1<<4)-1))<<2
+   368  0407  009F               	movwf	(31)	;volatile
+   369                           	line	33
+   370                           	
+   371  0408                     l3406:	
+   372                           ;finalfinal.c: 33: GO_DONE=1;
+   373  0408  149F               	bsf	(249/8),(249)&7
+   374                           	line	34
+   375                           ;finalfinal.c: 34: while(GO_DONE==1){}
+   376  0409  2C0A               	goto	l902
+   377                           	
+   378  040A                     l903:	
+   379                           	
+   380  040A                     l902:	
+   381  040A  189F               	btfsc	(249/8),(249)&7
+   382  040B  2C0D               	goto	u2721
+   383  040C  2C0E               	goto	u2720
+   384  040D                     u2721:
+   385  040D  2C0A               	goto	l902
+   386  040E                     u2720:
+   387  040E  2C0F               	goto	l3408
+   388                           	
+   389  040F                     l904:	
+   390                           	line	35
+   391                           	
+   392  040F                     l3408:	
+   393                           ;finalfinal.c: 35: rightSensor=ADRESH;
+   394  040F  081E               	movf	(30),w	;volatile
+   395  0410  00F7               	movwf	(??_main+0)+0
+   396  0411  0877               	movf	(??_main+0)+0,w
+   397  0412  00FD               	movwf	(_rightSensor)
+   398                           	line	36
+   399                           ;finalfinal.c: 36: _delay(100);
+   400                           	opt asmopt_off
+   401  0413  3021               movlw	33
+   402  0414  00F7               movwf	(??_main+0)+0,f
+   403  0415                     u3137:
+   404  0415  0BF7               decfsz	(??_main+0)+0,f
+   405  0416  2C15               	goto	u3137
+   406                           opt asmopt_on
+   407                           
+   408                           	line	38
+   409                           	
+   410  0417                     l3410:	
+   411                           ;finalfinal.c: 38: ADCON0bits.CHS=0B1010;
+   412  0417  1283               	bcf	status, 5	;RP0=0, select bank0
+   413  0418  1303               	bcf	status, 6	;RP1=0, select bank0
+   414  0419  081F               	movf	(31),w	;volatile
+   415  041A  39C3               	andlw	not (((1<<4)-1)<<2)
+   416  041B  3828               	iorlw	(0Ah & ((1<<4)-1))<<2
+   417  041C  009F               	movwf	(31)	;volatile
+   418                           	line	39
+   419                           	
+   420  041D                     l3412:	
+   421                           ;finalfinal.c: 39: GO_DONE=1;
+   422  041D  149F               	bsf	(249/8),(249)&7
+   423                           	line	40
+   424                           ;finalfinal.c: 40: while(GO_DONE==1){}
+   425  041E  2C1F               	goto	l905
+   426                           	
+   427  041F                     l906:	
+   428                           	
+   429  041F                     l905:	
+   430  041F  189F               	btfsc	(249/8),(249)&7
+   431  0420  2C22               	goto	u2731
+   432  0421  2C23               	goto	u2730
+   433  0422                     u2731:
+   434  0422  2C1F               	goto	l905
+   435  0423                     u2730:
+   436  0423  2C24               	goto	l3414
+   437                           	
+   438  0424                     l907:	
+   439                           	line	41
+   440                           	
+   441  0424                     l3414:	
+   442                           ;finalfinal.c: 41: leftSensor=ADRESH;
+   443  0424  081E               	movf	(30),w	;volatile
+   444  0425  00F7               	movwf	(??_main+0)+0
+   445  0426  0877               	movf	(??_main+0)+0,w
+   446  0427  00A2               	movwf	(_leftSensor)
+   447                           	line	42
+   448                           ;finalfinal.c: 42: _delay(100);
+   449                           	opt asmopt_off
+   450  0428  3021               movlw	33
+   451  0429  00F7               movwf	(??_main+0)+0,f
+   452  042A                     u3147:
+   453  042A  0BF7               decfsz	(??_main+0)+0,f
+   454  042B  2C2A               	goto	u3147
+   455                           opt asmopt_on
+   456                           
+   457                           	line	45
+   458                           ;finalfinal.c: 45: if ((rightSensor<=145)&& (leftSensor<145))
+   459  042C  3092               	movlw	(092h)
+   460  042D  027D               	subwf	(_rightSensor),w
+   461  042E  1803               	skipnc
+   462  042F  2C31               	goto	u2741
+   463  0430  2C32               	goto	u2740
+   464  0431                     u2741:
+   465  0431  2C46               	goto	l3422
+   466  0432                     u2740:
+   467                           	
+   468  0432                     l3416:	
+   469  0432  3091               	movlw	(091h)
+   470  0433  1283               	bcf	status, 5	;RP0=0, select bank0
+   471  0434  1303               	bcf	status, 6	;RP1=0, select bank0
+   472  0435  0222               	subwf	(_leftSensor),w
+   473  0436  1803               	skipnc
+   474  0437  2C39               	goto	u2751
+   475  0438  2C3A               	goto	u2750
+   476  0439                     u2751:
+   477  0439  2C46               	goto	l3422
+   478  043A                     u2750:
+   479                           	line	48
+   480                           	
+   481  043A                     l3418:	
+   482                           ;finalfinal.c: 46: {
+   483                           ;finalfinal.c: 48: RC0=1, RC1=0, RC3=1, RC4=0;
+   484  043A  1407               	bsf	(56/8),(56)&7
+   485  043B  1087               	bcf	(57/8),(57)&7
+   486  043C  1587               	bsf	(59/8),(59)&7
+   487  043D  1207               	bcf	(60/8),(60)&7
+   488                           	line	56
+   489                           	
+   490  043E                     l3420:	
+   491                           ;finalfinal.c: 56: _delay(1000);
+   492                           	opt asmopt_off
+   493  043E  30F9               movlw	249
+   494  043F  00F7               movwf	(??_main+0)+0,f
+   495  0440                     u3157:
+   496  0440  0064               	clrwdt
+   497  0441  0BF7               decfsz	(??_main+0)+0,f
+   498  0442  2C40               	goto	u3157
+   499  0443  2C44               	nop2	;nop
+   500  0444  0064               	clrwdt
+   501                           opt asmopt_on
+   502                           
+   503                           	line	58
+   504                           ;finalfinal.c: 58: }
+   505  0445  2C01               	goto	l3402
+   506                           	line	59
+   507                           	
+   508  0446                     l908:	
+   509                           	
+   510  0446                     l3422:	
+   511                           ;finalfinal.c: 59: else if ((rightSensor<145)&& (leftSensor>=145))
+   512  0446  3091               	movlw	(091h)
+   513  0447  027D               	subwf	(_rightSensor),w
+   514  0448  1803               	skipnc
+   515  0449  2C4B               	goto	u2761
+   516  044A  2C4C               	goto	u2760
+   517  044B                     u2761:
+   518  044B  2C60               	goto	l3430
+   519  044C                     u2760:
+   520                           	
+   521  044C                     l3424:	
+   522  044C  3091               	movlw	(091h)
+   523  044D  1283               	bcf	status, 5	;RP0=0, select bank0
+   524  044E  1303               	bcf	status, 6	;RP1=0, select bank0
+   525  044F  0222               	subwf	(_leftSensor),w
+   526  0450  1C03               	skipc
+   527  0451  2C53               	goto	u2771
+   528  0452  2C54               	goto	u2770
+   529  0453                     u2771:
+   530  0453  2C60               	goto	l3430
+   531  0454                     u2770:
+   532                           	line	61
+   533                           	
+   534  0454                     l3426:	
+   535                           ;finalfinal.c: 60: {
+   536                           ;finalfinal.c: 61: RC0=1, RC1=0, RC3=0, RC4=1;
+   537  0454  1407               	bsf	(56/8),(56)&7
+   538  0455  1087               	bcf	(57/8),(57)&7
+   539  0456  1187               	bcf	(59/8),(59)&7
+   540  0457  1607               	bsf	(60/8),(60)&7
+   541                           	line	62
+   542                           	
+   543  0458                     l3428:	
+   544                           ;finalfinal.c: 62: _delay(1000);
+   545                           	opt asmopt_off
+   546  0458  30F9               movlw	249
+   547  0459  00F7               movwf	(??_main+0)+0,f
+   548  045A                     u3167:
+   549  045A  0064               	clrwdt
+   550  045B  0BF7               decfsz	(??_main+0)+0,f
+   551  045C  2C5A               	goto	u3167
+   552  045D  2C5E               	nop2	;nop
+   553  045E  0064               	clrwdt
+   554                           opt asmopt_on
+   555                           
+   556                           	line	63
+   557                           ;finalfinal.c: 63: }
+   558  045F  2C01               	goto	l3402
+   559                           	line	65
+   560                           	
+   561  0460                     l910:	
+   562                           	
+   563  0460                     l3430:	
+   564                           ;finalfinal.c: 65: else if ((rightSensor>=145)&& (leftSensor<=145))
+   565  0460  3091               	movlw	(091h)
+   566  0461  027D               	subwf	(_rightSensor),w
+   567  0462  1C03               	skipc
+   568  0463  2C65               	goto	u2781
+   569  0464  2C66               	goto	u2780
+   570  0465                     u2781:
+   571  0465  2C7A               	goto	l3438
+   572  0466                     u2780:
+   573                           	
+   574  0466                     l3432:	
+   575  0466  3092               	movlw	(092h)
+   576  0467  1283               	bcf	status, 5	;RP0=0, select bank0
+   577  0468  1303               	bcf	status, 6	;RP1=0, select bank0
+   578  0469  0222               	subwf	(_leftSensor),w
+   579  046A  1803               	skipnc
+   580  046B  2C6D               	goto	u2791
+   581  046C  2C6E               	goto	u2790
+   582  046D                     u2791:
+   583  046D  2C7A               	goto	l3438
+   584  046E                     u2790:
+   585                           	line	67
+   586                           	
+   587  046E                     l3434:	
+   588                           ;finalfinal.c: 66: {
+   589                           ;finalfinal.c: 67: RC0=0, RC1=1, RC3=1, RC4=0;
+   590  046E  1007               	bcf	(56/8),(56)&7
+   591  046F  1487               	bsf	(57/8),(57)&7
+   592  0470  1587               	bsf	(59/8),(59)&7
+   593  0471  1207               	bcf	(60/8),(60)&7
+   594                           	line	68
+   595                           	
+   596  0472                     l3436:	
+   597                           ;finalfinal.c: 68: _delay(1000);
+   598                           	opt asmopt_off
+   599  0472  30F9               movlw	249
+   600  0473  00F7               movwf	(??_main+0)+0,f
+   601  0474                     u3177:
+   602  0474  0064               	clrwdt
+   603  0475  0BF7               decfsz	(??_main+0)+0,f
+   604  0476  2C74               	goto	u3177
+   605  0477  2C78               	nop2	;nop
+   606  0478  0064               	clrwdt
+   607                           opt asmopt_on
+   608                           
+   609                           	line	69
+   610                           ;finalfinal.c: 69: }
+   611  0479  2C01               	goto	l3402
+   612                           	line	71
+   613                           	
+   614  047A                     l912:	
+   615                           	
+   616  047A                     l3438:	
+   617                           ;finalfinal.c: 71: else if ((rightSensor>145)&&(leftSensor>145))
+   618  047A  3092               	movlw	(092h)
+   619  047B  027D               	subwf	(_rightSensor),w
+   620  047C  1C03               	skipc
+   621  047D  2C7F               	goto	u2801
+   622  047E  2C80               	goto	u2800
+   623  047F                     u2801:
+   624  047F  2C01               	goto	l3402
+   625  0480                     u2800:
+   626                           	
+   627  0480                     l3440:	
+   628  0480  3092               	movlw	(092h)
+   629  0481  1283               	bcf	status, 5	;RP0=0, select bank0
+   630  0482  1303               	bcf	status, 6	;RP1=0, select bank0
+   631  0483  0222               	subwf	(_leftSensor),w
+   632  0484  1C03               	skipc
+   633  0485  2C87               	goto	u2811
+   634  0486  2C88               	goto	u2810
+   635  0487                     u2811:
+   636  0487  2C01               	goto	l3402
+   637  0488                     u2810:
+   638                           	line	73
+   639                           	
+   640  0488                     l3442:	
+   641                           ;finalfinal.c: 72: {
+   642                           ;finalfinal.c: 73: PORTC=0b00000000;
+   643  0488  0187               	clrf	(7)	;volatile
+   644                           	line	74
+   645                           	
+   646  0489                     l3444:	
+   647                           ;finalfinal.c: 74: if (onBlack==1){
+   648  0489  3001               	movlw	01h
+   649  048A  067B               	xorwf	(_onBlack),w
+   650  048B  047C               	iorwf	(_onBlack+1),w
+   651  048C  1D03               	skipz
+   652  048D  2C8F               	goto	u2821
+   653  048E  2C90               	goto	u2820
+   654  048F                     u2821:
+   655  048F  2CA6               	goto	l3450
+   656  0490                     u2820:
+   657                           	line	76
+   658                           	
+   659  0490                     l3446:	
+   660                           ;finalfinal.c: 76: RC0=1, RC1=0, RC3=1, RC4=0;
+   661  0490  1407               	bsf	(56/8),(56)&7
+   662  0491  1087               	bcf	(57/8),(57)&7
+   663  0492  1587               	bsf	(59/8),(59)&7
+   664  0493  1207               	bcf	(60/8),(60)&7
+   665                           	line	77
+   666                           ;finalfinal.c: 77: RC7=1;
+   667  0494  1787               	bsf	(63/8),(63)&7
+   668                           	line	78
+   669                           	
+   670  0495                     l3448:	
+   671                           ;finalfinal.c: 78: _delay(580000);
+   672                           	opt asmopt_off
+   673  0495  3003               movlw  3
+   674  0496  00F9               movwf	((??_main+0)+0+2),f
+   675  0497  30F2               movlw	242
+   676  0498  00F8               movwf	((??_main+0)+0+1),f
+   677  0499  303C               	movlw	60
+   678  049A  00F7               movwf	((??_main+0)+0),f
+   679  049B                     u3187:
+   680  049B  0BF7               	decfsz	((??_main+0)+0),f
+   681  049C  2C9B               	goto	u3187
+   682  049D  0BF8               	decfsz	((??_main+0)+0+1),f
+   683  049E  2C9B               	goto	u3187
+   684  049F  0BF9               	decfsz	((??_main+0)+0+2),f
+   685  04A0  2C9B               	goto	u3187
+   686                           opt asmopt_on
+   687                           
+   688                           	line	79
+   689                           ;finalfinal.c: 79: onBlack=2;
+   690  04A1  3002               	movlw	low(02h)
+   691  04A2  00FB               	movwf	(_onBlack)
+   692  04A3  3000               	movlw	high(02h)
+   693  04A4  00FC               	movwf	((_onBlack))+1
+   694                           	line	80
+   695                           ;finalfinal.c: 80: }
+   696  04A5  2C01               	goto	l3402
+   697                           	line	81
+   698                           	
+   699  04A6                     l915:	
+   700                           	
+   701  04A6                     l3450:	
+   702                           ;finalfinal.c: 81: else if(onBlack==2){
+   703  04A6  3002               	movlw	02h
+   704  04A7  067B               	xorwf	(_onBlack),w
+   705  04A8  047C               	iorwf	(_onBlack+1),w
+   706  04A9  1D03               	skipz
+   707  04AA  2CAC               	goto	u2831
+   708  04AB  2CAD               	goto	u2830
+   709  04AC                     u2831:
+   710  04AC  2CC6               	goto	l3456
+   711  04AD                     u2830:
+   712                           	line	83
+   713                           	
+   714  04AD                     l3452:	
+   715                           ;finalfinal.c: 83: RC0=0, RC1=1, RC3=1, RC4=0;
+   716  04AD  1283               	bcf	status, 5	;RP0=0, select bank0
+   717  04AE  1303               	bcf	status, 6	;RP1=0, select bank0
+   718  04AF  1007               	bcf	(56/8),(56)&7
+   719  04B0  1487               	bsf	(57/8),(57)&7
+   720  04B1  1587               	bsf	(59/8),(59)&7
+   721  04B2  1207               	bcf	(60/8),(60)&7
+   722                           	line	84
+   723                           ;finalfinal.c: 84: RC6=1;
+   724  04B3  1707               	bsf	(62/8),(62)&7
+   725                           	line	85
+   726                           	
+   727  04B4                     l3454:	
+   728                           ;finalfinal.c: 85: _delay(450000);
+   729                           	opt asmopt_off
+   730  04B4  3003               movlw  3
+   731  04B5  00F9               movwf	((??_main+0)+0+2),f
+   732  04B6  3049               movlw	73
+   733  04B7  00F8               movwf	((??_main+0)+0+1),f
+   734  04B8  3067               	movlw	103
+   735  04B9  00F7               movwf	((??_main+0)+0),f
+   736  04BA                     u3197:
+   737  04BA  0BF7               	decfsz	((??_main+0)+0),f
+   738  04BB  2CBA               	goto	u3197
+   739  04BC  0BF8               	decfsz	((??_main+0)+0+1),f
+   740  04BD  2CBA               	goto	u3197
+   741  04BE  0BF9               	decfsz	((??_main+0)+0+2),f
+   742  04BF  2CBA               	goto	u3197
+   743  04C0  0064               	clrwdt
+   744                           opt asmopt_on
+   745                           
+   746                           	line	86
+   747                           ;finalfinal.c: 86: onBlack=3;
+   748  04C1  3003               	movlw	low(03h)
+   749  04C2  00FB               	movwf	(_onBlack)
+   750  04C3  3000               	movlw	high(03h)
+   751  04C4  00FC               	movwf	((_onBlack))+1
+   752                           	line	87
+   753                           ;finalfinal.c: 87: }
+   754  04C5  2C01               	goto	l3402
+   755                           	line	88
+   756                           	
+   757  04C6                     l917:	
+   758                           	
+   759  04C6                     l3456:	
+   760                           ;finalfinal.c: 88: else if(onBlack==3){
+   761  04C6  3003               	movlw	03h
+   762  04C7  067B               	xorwf	(_onBlack),w
+   763  04C8  047C               	iorwf	(_onBlack+1),w
+   764  04C9  1D03               	skipz
+   765  04CA  2CCC               	goto	u2841
+   766  04CB  2CCD               	goto	u2840
+   767  04CC                     u2841:
+   768  04CC  2CE6               	goto	l3462
+   769  04CD                     u2840:
+   770                           	line	90
+   771                           	
+   772  04CD                     l3458:	
+   773                           ;finalfinal.c: 90: RC0=0, RC1=1, RC3=1, RC4=0;
+   774  04CD  1283               	bcf	status, 5	;RP0=0, select bank0
+   775  04CE  1303               	bcf	status, 6	;RP1=0, select bank0
+   776  04CF  1007               	bcf	(56/8),(56)&7
+   777  04D0  1487               	bsf	(57/8),(57)&7
+   778  04D1  1587               	bsf	(59/8),(59)&7
+   779  04D2  1207               	bcf	(60/8),(60)&7
+   780                           	line	91
+   781                           ;finalfinal.c: 91: RC6=1;
+   782  04D3  1707               	bsf	(62/8),(62)&7
+   783                           	line	92
+   784                           	
+   785  04D4                     l3460:	
+   786                           ;finalfinal.c: 92: _delay(200000);
+   787                           	opt asmopt_off
+   788  04D4  3002               movlw  2
+   789  04D5  00F9               movwf	((??_main+0)+0+2),f
+   790  04D6  3004               movlw	4
+   791  04D7  00F8               movwf	((??_main+0)+0+1),f
+   792  04D8  30BA               	movlw	186
+   793  04D9  00F7               movwf	((??_main+0)+0),f
+   794  04DA                     u3207:
+   795  04DA  0BF7               	decfsz	((??_main+0)+0),f
+   796  04DB  2CDA               	goto	u3207
+   797  04DC  0BF8               	decfsz	((??_main+0)+0+1),f
+   798  04DD  2CDA               	goto	u3207
+   799  04DE  0BF9               	decfsz	((??_main+0)+0+2),f
+   800  04DF  2CDA               	goto	u3207
+   801  04E0  0064               	clrwdt
+   802                           opt asmopt_on
+   803                           
+   804                           	line	93
+   805                           ;finalfinal.c: 93: onBlack=4;
+   806  04E1  3004               	movlw	low(04h)
+   807  04E2  00FB               	movwf	(_onBlack)
+   808  04E3  3000               	movlw	high(04h)
+   809  04E4  00FC               	movwf	((_onBlack))+1
+   810                           	line	94
+   811                           ;finalfinal.c: 94: }
+   812  04E5  2C01               	goto	l3402
+   813                           	line	95
+   814                           	
+   815  04E6                     l919:	
+   816                           	
+   817  04E6                     l3462:	
+   818                           ;finalfinal.c: 95: else if(onBlack==4){
+   819  04E6  3004               	movlw	04h
+   820  04E7  067B               	xorwf	(_onBlack),w
+   821  04E8  047C               	iorwf	(_onBlack+1),w
+   822  04E9  1D03               	skipz
+   823  04EA  2CEC               	goto	u2851
+   824  04EB  2CED               	goto	u2850
+   825  04EC                     u2851:
+   826  04EC  2D02               	goto	l3468
+   827  04ED                     u2850:
+   828                           	line	97
+   829                           	
+   830  04ED                     l3464:	
+   831                           ;finalfinal.c: 97: RC0=0, RC1=1, RC3=1, RC4=0;
+   832  04ED  1283               	bcf	status, 5	;RP0=0, select bank0
+   833  04EE  1303               	bcf	status, 6	;RP1=0, select bank0
+   834  04EF  1007               	bcf	(56/8),(56)&7
+   835  04F0  1487               	bsf	(57/8),(57)&7
+   836  04F1  1587               	bsf	(59/8),(59)&7
+   837  04F2  1207               	bcf	(60/8),(60)&7
+   838                           	line	98
+   839                           ;finalfinal.c: 98: RC6=1;
+   840  04F3  1707               	bsf	(62/8),(62)&7
+   841                           	line	99
+   842                           	
+   843  04F4                     l3466:	
+   844                           ;finalfinal.c: 99: _delay(170000);
+   845                           	opt asmopt_off
+   846  04F4  30DD               movlw	221
+   847  04F5  00F8               movwf	((??_main+0)+0+1),f
+   848  04F6  30C6               	movlw	198
+   849  04F7  00F7               movwf	((??_main+0)+0),f
+   850  04F8                     u3217:
+   851  04F8  0BF7               	decfsz	((??_main+0)+0),f
+   852  04F9  2CF8               	goto	u3217
+   853  04FA  0BF8               	decfsz	((??_main+0)+0+1),f
+   854  04FB  2CF8               	goto	u3217
+   855  04FC  0064               	clrwdt
+   856                           opt asmopt_on
+   857                           
+   858                           	line	100
+   859                           ;finalfinal.c: 100: onBlack=5;
+   860  04FD  3005               	movlw	low(05h)
+   861  04FE  00FB               	movwf	(_onBlack)
+   862  04FF  3000               	movlw	high(05h)
+   863  0500  00FC               	movwf	((_onBlack))+1
+   864                           	line	101
+   865                           ;finalfinal.c: 101: }
+   866  0501  2C01               	goto	l3402
+   867                           	line	102
+   868                           	
+   869  0502                     l921:	
+   870                           	
+   871  0502                     l3468:	
+   872                           ;finalfinal.c: 102: else if(onBlack==5){
+   873  0502  3005               	movlw	05h
+   874  0503  067B               	xorwf	(_onBlack),w
+   875  0504  047C               	iorwf	(_onBlack+1),w
+   876  0505  1D03               	skipz
+   877  0506  2D08               	goto	u2861
+   878  0507  2D09               	goto	u2860
+   879  0508                     u2861:
+   880  0508  2D36               	goto	l3484
+   881  0509                     u2860:
+   882                           	line	104
+   883                           	
+   884  0509                     l3470:	
+   885                           ;finalfinal.c: 104: RC0=1, RC1=0, RC3=1, RC4=0;
+   886  0509  1283               	bcf	status, 5	;RP0=0, select bank0
+   887  050A  1303               	bcf	status, 6	;RP1=0, select bank0
+   888  050B  1407               	bsf	(56/8),(56)&7
+   889  050C  1087               	bcf	(57/8),(57)&7
+   890  050D  1587               	bsf	(59/8),(59)&7
+   891  050E  1207               	bcf	(60/8),(60)&7
+   892                           	line	105
+   893                           ;finalfinal.c: 105: RC7=1;
+   894  050F  1787               	bsf	(63/8),(63)&7
+   895                           	line	106
+   896                           	
+   897  0510                     l3472:	
+   898                           ;finalfinal.c: 106: _delay(450000);
+   899                           	opt asmopt_off
+   900  0510  3003               movlw  3
+   901  0511  00F9               movwf	((??_main+0)+0+2),f
+   902  0512  3049               movlw	73
+   903  0513  00F8               movwf	((??_main+0)+0+1),f
+   904  0514  3067               	movlw	103
+   905  0515  00F7               movwf	((??_main+0)+0),f
+   906  0516                     u3227:
+   907  0516  0BF7               	decfsz	((??_main+0)+0),f
+   908  0517  2D16               	goto	u3227
+   909  0518  0BF8               	decfsz	((??_main+0)+0+1),f
+   910  0519  2D16               	goto	u3227
+   911  051A  0BF9               	decfsz	((??_main+0)+0+2),f
+   912  051B  2D16               	goto	u3227
+   913  051C  0064               	clrwdt
+   914                           opt asmopt_on
+   915                           
+   916                           	line	108
+   917                           	
+   918  051D                     l3474:	
+   919                           ;finalfinal.c: 108: RC0=0, RC1=1, RC3=1, RC4=0;
+   920  051D  1283               	bcf	status, 5	;RP0=0, select bank0
+   921  051E  1303               	bcf	status, 6	;RP1=0, select bank0
+   922  051F  1007               	bcf	(56/8),(56)&7
+   923                           	
+   924  0520                     l3476:	
+   925  0520  1487               	bsf	(57/8),(57)&7
+   926                           	
+   927  0521                     l3478:	
+   928  0521  1587               	bsf	(59/8),(59)&7
+   929                           	
+   930  0522                     l3480:	
+   931  0522  1207               	bcf	(60/8),(60)&7
+   932                           	line	109
+   933                           	
+   934  0523                     l3482:	
+   935                           ;finalfinal.c: 109: RC6=1;
+   936  0523  1707               	bsf	(62/8),(62)&7
+   937                           	line	110
+   938                           ;finalfinal.c: 110: _delay(450000);
+   939                           	opt asmopt_off
+   940  0524  3003               movlw  3
+   941  0525  00F9               movwf	((??_main+0)+0+2),f
+   942  0526  3049               movlw	73
+   943  0527  00F8               movwf	((??_main+0)+0+1),f
+   944  0528  3067               	movlw	103
+   945  0529  00F7               movwf	((??_main+0)+0),f
+   946  052A                     u3237:
+   947  052A  0BF7               	decfsz	((??_main+0)+0),f
+   948  052B  2D2A               	goto	u3237
+   949  052C  0BF8               	decfsz	((??_main+0)+0+1),f
+   950  052D  2D2A               	goto	u3237
+   951  052E  0BF9               	decfsz	((??_main+0)+0+2),f
+   952  052F  2D2A               	goto	u3237
+   953  0530  0064               	clrwdt
+   954                           opt asmopt_on
+   955                           
+   956                           	line	111
+   957                           ;finalfinal.c: 111: onBlack=6;
+   958  0531  3006               	movlw	low(06h)
+   959  0532  00FB               	movwf	(_onBlack)
+   960  0533  3000               	movlw	high(06h)
+   961  0534  00FC               	movwf	((_onBlack))+1
+   962                           	line	112
+   963                           ;finalfinal.c: 112: }
+   964  0535  2C01               	goto	l3402
+   965                           	line	113
+   966                           	
+   967  0536                     l923:	
+   968                           	
+   969  0536                     l3484:	
+   970                           ;finalfinal.c: 113: else if(onBlack==6){
+   971  0536  3006               	movlw	06h
+   972  0537  067B               	xorwf	(_onBlack),w
+   973  0538  047C               	iorwf	(_onBlack+1),w
+   974  0539  1D03               	skipz
+   975  053A  2D3C               	goto	u2871
+   976  053B  2D3D               	goto	u2870
+   977  053C                     u2871:
+   978  053C  2E89               	goto	l3564
+   979  053D                     u2870:
+   980                           	line	115
+   981                           	
+   982  053D                     l3486:	
+   983                           ;finalfinal.c: 115: RC0=1, RC1=0, RC3=1, RC4=0, RC6=1;
+   984  053D  1283               	bcf	status, 5	;RP0=0, select bank0
+   985  053E  1303               	bcf	status, 6	;RP1=0, select bank0
+   986  053F  1407               	bsf	(56/8),(56)&7
+   987  0540  1087               	bcf	(57/8),(57)&7
+   988  0541  1587               	bsf	(59/8),(59)&7
+   989  0542  1207               	bcf	(60/8),(60)&7
+   990  0543  1707               	bsf	(62/8),(62)&7
+   991                           	line	116
+   992                           	
+   993  0544                     l3488:	
+   994                           ;finalfinal.c: 116: _delay(300000);
+   995                           	opt asmopt_off
+   996  0544  3002               movlw  2
+   997  0545  00F9               movwf	((??_main+0)+0+2),f
+   998  0546  3086               movlw	134
+   999  0547  00F8               movwf	((??_main+0)+0+1),f
+  1000  0548  3099               	movlw	153
+  1001  0549  00F7               movwf	((??_main+0)+0),f
+  1002  054A                     u3247:
+  1003  054A  0BF7               	decfsz	((??_main+0)+0),f
+  1004  054B  2D4A               	goto	u3247
+  1005  054C  0BF8               	decfsz	((??_main+0)+0+1),f
+  1006  054D  2D4A               	goto	u3247
+  1007  054E  0BF9               	decfsz	((??_main+0)+0+2),f
+  1008  054F  2D4A               	goto	u3247
+  1009                           opt asmopt_on
+  1010                           
+  1011                           	line	117
+  1012                           	
+  1013  0550                     l3490:	
+  1014                           ;finalfinal.c: 117: PORTC=0b00000000;
+  1015  0550  1283               	bcf	status, 5	;RP0=0, select bank0
+  1016  0551  1303               	bcf	status, 6	;RP1=0, select bank0
+  1017  0552  0187               	clrf	(7)	;volatile
+  1018  0553  2D54               	goto	l3492
+  1019                           	line	118
+  1020                           ;finalfinal.c: 118: while(1)
+  1021                           	
+  1022  0554                     l926:	
+  1023                           	line	121
+  1024                           	
+  1025  0554                     l3492:	
+  1026                           ;finalfinal.c: 119: {
+  1027                           ;finalfinal.c: 121: ADCON0bits. CHS=0B1011;
+  1028  0554  1283               	bcf	status, 5	;RP0=0, select bank0
+  1029  0555  1303               	bcf	status, 6	;RP1=0, select bank0
+  1030  0556  081F               	movf	(31),w	;volatile
+  1031  0557  39C3               	andlw	not (((1<<4)-1)<<2)
+  1032  0558  382C               	iorlw	(0Bh & ((1<<4)-1))<<2
+  1033  0559  009F               	movwf	(31)	;volatile
+  1034                           	line	122
+  1035                           	
+  1036  055A                     l3494:	
+  1037                           ;finalfinal.c: 122: GO_DONE=1;
+  1038  055A  149F               	bsf	(249/8),(249)&7
+  1039                           	line	123
+  1040                           ;finalfinal.c: 123: while(GO_DONE==1){}
+  1041  055B  2D5C               	goto	l927
+  1042                           	
+  1043  055C                     l928:	
+  1044                           	
+  1045  055C                     l927:	
+  1046  055C  189F               	btfsc	(249/8),(249)&7
+  1047  055D  2D5F               	goto	u2881
+  1048  055E  2D60               	goto	u2880
+  1049  055F                     u2881:
+  1050  055F  2D5C               	goto	l927
+  1051  0560                     u2880:
+  1052  0560  2D61               	goto	l3496
+  1053                           	
+  1054  0561                     l929:	
+  1055                           	line	124
+  1056                           	
+  1057  0561                     l3496:	
+  1058                           ;finalfinal.c: 124: rightSensor=ADRESH;
+  1059  0561  081E               	movf	(30),w	;volatile
+  1060  0562  00F7               	movwf	(??_main+0)+0
+  1061  0563  0877               	movf	(??_main+0)+0,w
+  1062  0564  00FD               	movwf	(_rightSensor)
+  1063                           	line	125
+  1064                           ;finalfinal.c: 125: _delay(10);
+  1065                           	opt asmopt_off
+  1066  0565  3003               movlw	3
+  1067  0566  00F7               movwf	(??_main+0)+0,f
+  1068  0567                     u3257:
+  1069  0567  0BF7               decfsz	(??_main+0)+0,f
+  1070  0568  2D67               	goto	u3257
+  1071                           opt asmopt_on
+  1072                           
+  1073                           	line	128
+  1074                           	
+  1075  0569                     l3498:	
+  1076                           ;finalfinal.c: 128: ADCON0bits.CHS=0B1010;
+  1077  0569  1283               	bcf	status, 5	;RP0=0, select bank0
+  1078  056A  1303               	bcf	status, 6	;RP1=0, select bank0
+  1079  056B  081F               	movf	(31),w	;volatile
+  1080  056C  39C3               	andlw	not (((1<<4)-1)<<2)
+  1081  056D  3828               	iorlw	(0Ah & ((1<<4)-1))<<2
+  1082  056E  009F               	movwf	(31)	;volatile
+  1083                           	line	129
+  1084                           	
+  1085  056F                     l3500:	
+  1086                           ;finalfinal.c: 129: GO_DONE=1;
+  1087  056F  149F               	bsf	(249/8),(249)&7
+  1088                           	line	130
+  1089                           ;finalfinal.c: 130: while(GO_DONE==1){}
+  1090  0570  2D71               	goto	l930
+  1091                           	
+  1092  0571                     l931:	
+  1093                           	
+  1094  0571                     l930:	
+  1095  0571  189F               	btfsc	(249/8),(249)&7
+  1096  0572  2D74               	goto	u2891
+  1097  0573  2D75               	goto	u2890
+  1098  0574                     u2891:
+  1099  0574  2D71               	goto	l930
+  1100  0575                     u2890:
+  1101  0575  2D76               	goto	l3502
+  1102                           	
+  1103  0576                     l932:	
+  1104                           	line	131
+  1105                           	
+  1106  0576                     l3502:	
+  1107                           ;finalfinal.c: 131: leftSensor=ADRESH;
+  1108  0576  081E               	movf	(30),w	;volatile
+  1109  0577  00F7               	movwf	(??_main+0)+0
+  1110  0578  0877               	movf	(??_main+0)+0,w
+  1111  0579  00A2               	movwf	(_leftSensor)
+  1112                           	line	132
+  1113                           ;finalfinal.c: 132: _delay(10);
+  1114                           	opt asmopt_off
+  1115  057A  3003               movlw	3
+  1116  057B  00F7               movwf	(??_main+0)+0,f
+  1117  057C                     u3267:
+  1118  057C  0BF7               decfsz	(??_main+0)+0,f
+  1119  057D  2D7C               	goto	u3267
+  1120                           opt asmopt_on
+  1121                           
+  1122                           	line	133
+  1123                           	
+  1124  057E                     l3504:	
+  1125                           ;finalfinal.c: 133: timer++;
+  1126  057E  3001               	movlw	(01h)
+  1127  057F  00F7               	movwf	(??_main+0)+0
+  1128  0580  0877               	movf	(??_main+0)+0,w
+  1129  0581  1283               	bcf	status, 5	;RP0=0, select bank0
+  1130  0582  1303               	bcf	status, 6	;RP1=0, select bank0
+  1131  0583  07A3               	addwf	(_timer),f
+  1132                           	line	134
+  1133                           	
+  1134  0584                     l3506:	
+  1135                           ;finalfinal.c: 134: if ((timer%35==0))
+  1136  0584  3023               	movlw	low(023h)
+  1137  0585  00F0               	movwf	(?___awmod)
+  1138  0586  3000               	movlw	high(023h)
+  1139  0587  00F1               	movwf	((?___awmod))+1
+  1140  0588  0823               	movf	(_timer),w
+  1141  0589  00F7               	movwf	(??_main+0)+0
+  1142  058A  01F8               	clrf	(??_main+0)+0+1
+  1143  058B  0877               	movf	0+(??_main+0)+0,w
+  1144  058C  00F2               	movwf	0+(?___awmod)+02h
+  1145  058D  0878               	movf	1+(??_main+0)+0,w
+  1146  058E  00F3               	movwf	1+(?___awmod)+02h
+  1147  058F  118A  2394  118A   	fcall	___awmod
+  1148  0592  0871               	movf	((1+(?___awmod))),w
+  1149  0593  0470               	iorwf	((0+(?___awmod))),w
+  1150  0594  1D03               	skipz
+  1151  0595  2D97               	goto	u2901
+  1152  0596  2D98               	goto	u2900
+  1153  0597                     u2901:
+  1154  0597  2DA8               	goto	l933
+  1155  0598                     u2900:
+  1156                           	line	137
+  1157                           	
+  1158  0598                     l3508:	
+  1159                           ;finalfinal.c: 135: {
+  1160                           ;finalfinal.c: 137: RC0=0, RC1=1, RC3=1, RC4=0;
+  1161  0598  1283               	bcf	status, 5	;RP0=0, select bank0
+  1162  0599  1303               	bcf	status, 6	;RP1=0, select bank0
+  1163  059A  1007               	bcf	(56/8),(56)&7
+  1164  059B  1487               	bsf	(57/8),(57)&7
+  1165  059C  1587               	bsf	(59/8),(59)&7
+  1166  059D  1207               	bcf	(60/8),(60)&7
+  1167                           	line	138
+  1168                           	
+  1169  059E                     l3510:	
+  1170                           ;finalfinal.c: 138: _delay(33000);
+  1171                           	opt asmopt_off
+  1172  059E  302B               movlw	43
+  1173  059F  00F8               movwf	((??_main+0)+0+1),f
+  1174  05A0  30DA               	movlw	218
+  1175  05A1  00F7               movwf	((??_main+0)+0),f
+  1176  05A2                     u3277:
+  1177  05A2  0BF7               	decfsz	((??_main+0)+0),f
+  1178  05A3  2DA2               	goto	u3277
+  1179  05A4  0BF8               	decfsz	((??_main+0)+0+1),f
+  1180  05A5  2DA2               	goto	u3277
+  1181  05A6  0064               	clrwdt
+  1182                           opt asmopt_on
+  1183                           
+  1184                           	line	139
+  1185                           ;finalfinal.c: 139: }
+  1186  05A7  2DC4               	goto	l3518
+  1187                           	line	140
+  1188                           	
+  1189  05A8                     l933:	
+  1190                           	line	143
+  1191                           ;finalfinal.c: 140: else
+  1192                           ;finalfinal.c: 141: {
+  1193                           ;finalfinal.c: 143: RC0=1, RC1=0, RC3=1, RC4=0;
+  1194  05A8  1283               	bcf	status, 5	;RP0=0, select bank0
+  1195  05A9  1303               	bcf	status, 6	;RP1=0, select bank0
+  1196  05AA  1407               	bsf	(56/8),(56)&7
+  1197  05AB  1087               	bcf	(57/8),(57)&7
+  1198  05AC  1587               	bsf	(59/8),(59)&7
+  1199  05AD  1207               	bcf	(60/8),(60)&7
+  1200                           	line	144
+  1201                           	
+  1202  05AE                     l3512:	
+  1203                           ;finalfinal.c: 144: _delay(6000);
+  1204                           	opt asmopt_off
+  1205  05AE  3008               movlw	8
+  1206  05AF  00F8               movwf	((??_main+0)+0+1),f
+  1207  05B0  30C9               	movlw	201
+  1208  05B1  00F7               movwf	((??_main+0)+0),f
+  1209  05B2                     u3287:
+  1210  05B2  0BF7               	decfsz	((??_main+0)+0),f
+  1211  05B3  2DB2               	goto	u3287
+  1212  05B4  0BF8               	decfsz	((??_main+0)+0+1),f
+  1213  05B5  2DB2               	goto	u3287
+  1214  05B6  2DB7               	nop2
+  1215                           opt asmopt_on
+  1216                           
+  1217                           	line	145
+  1218                           	
+  1219  05B7                     l3514:	
+  1220                           ;finalfinal.c: 145: PORTC=0b00000000;
+  1221  05B7  1283               	bcf	status, 5	;RP0=0, select bank0
+  1222  05B8  1303               	bcf	status, 6	;RP1=0, select bank0
+  1223  05B9  0187               	clrf	(7)	;volatile
+  1224                           	line	146
+  1225                           	
+  1226  05BA                     l3516:	
+  1227                           ;finalfinal.c: 146: _delay(40000);
+  1228                           	opt asmopt_off
+  1229  05BA  3034               movlw	52
+  1230  05BB  00F8               movwf	((??_main+0)+0+1),f
+  1231  05BC  30F1               	movlw	241
+  1232  05BD  00F7               movwf	((??_main+0)+0),f
+  1233  05BE                     u3297:
+  1234  05BE  0BF7               	decfsz	((??_main+0)+0),f
+  1235  05BF  2DBE               	goto	u3297
+  1236  05C0  0BF8               	decfsz	((??_main+0)+0+1),f
+  1237  05C1  2DBE               	goto	u3297
+  1238  05C2  2DC3               	nop2
+  1239                           opt asmopt_on
+  1240                           
+  1241  05C3  2DC4               	goto	l3518
+  1242                           	line	147
+  1243                           	
+  1244  05C4                     l934:	
+  1245                           	line	149
+  1246                           	
+  1247  05C4                     l3518:	
+  1248                           ;finalfinal.c: 147: }
+  1249                           ;finalfinal.c: 149: if ((rightSensor>145)||(leftSensor>145))
+  1250  05C4  3092               	movlw	(092h)
+  1251  05C5  027D               	subwf	(_rightSensor),w
+  1252  05C6  1803               	skipnc
+  1253  05C7  2DC9               	goto	u2911
+  1254  05C8  2DCA               	goto	u2910
+  1255  05C9                     u2911:
+  1256  05C9  2DD2               	goto	l937
+  1257  05CA                     u2910:
+  1258                           	
+  1259  05CA                     l3520:	
+  1260  05CA  3092               	movlw	(092h)
+  1261  05CB  1283               	bcf	status, 5	;RP0=0, select bank0
+  1262  05CC  1303               	bcf	status, 6	;RP1=0, select bank0
+  1263  05CD  0222               	subwf	(_leftSensor),w
+  1264  05CE  1C03               	skipc
+  1265  05CF  2DD1               	goto	u2921
+  1266  05D0  2DD2               	goto	u2920
+  1267  05D1                     u2921:
+  1268  05D1  2D54               	goto	l3492
+  1269  05D2                     u2920:
+  1270                           	
+  1271  05D2                     l937:	
+  1272                           	line	151
+  1273                           ;finalfinal.c: 150: {
+  1274                           ;finalfinal.c: 151: RC0=1, RC1=0, RC3=1, RC4=0, RC6=1;
+  1275  05D2  1283               	bcf	status, 5	;RP0=0, select bank0
+  1276  05D3  1303               	bcf	status, 6	;RP1=0, select bank0
+  1277  05D4  1407               	bsf	(56/8),(56)&7
+  1278  05D5  1087               	bcf	(57/8),(57)&7
+  1279  05D6  1587               	bsf	(59/8),(59)&7
+  1280  05D7  1207               	bcf	(60/8),(60)&7
+  1281  05D8  1707               	bsf	(62/8),(62)&7
+  1282                           	line	152
+  1283                           	
+  1284  05D9                     l3522:	
+  1285                           ;finalfinal.c: 152: _delay(135000);
+  1286                           	opt asmopt_off
+  1287  05D9  30B0               movlw	176
+  1288  05DA  00F8               movwf	((??_main+0)+0+1),f
+  1289  05DB  3051               	movlw	81
+  1290  05DC  00F7               movwf	((??_main+0)+0),f
+  1291  05DD                     u3307:
+  1292  05DD  0BF7               	decfsz	((??_main+0)+0),f
+  1293  05DE  2DDD               	goto	u3307
+  1294  05DF  0BF8               	decfsz	((??_main+0)+0+1),f
+  1295  05E0  2DDD               	goto	u3307
+  1296  05E1  2DE2               	nop2
+  1297                           opt asmopt_on
+  1298                           
+  1299                           	line	154
+  1300                           	
+  1301  05E2                     l3524:	
+  1302                           ;finalfinal.c: 154: ADCON0bits. CHS=0B1011;
+  1303  05E2  1283               	bcf	status, 5	;RP0=0, select bank0
+  1304  05E3  1303               	bcf	status, 6	;RP1=0, select bank0
+  1305  05E4  081F               	movf	(31),w	;volatile
+  1306  05E5  39C3               	andlw	not (((1<<4)-1)<<2)
+  1307  05E6  382C               	iorlw	(0Bh & ((1<<4)-1))<<2
+  1308  05E7  009F               	movwf	(31)	;volatile
+  1309                           	line	155
+  1310                           	
+  1311  05E8                     l3526:	
+  1312                           ;finalfinal.c: 155: GO_DONE=1;
+  1313  05E8  149F               	bsf	(249/8),(249)&7
+  1314                           	line	156
+  1315                           ;finalfinal.c: 156: while(GO_DONE==1){}
+  1316  05E9  2DEA               	goto	l938
+  1317                           	
+  1318  05EA                     l939:	
+  1319                           	
+  1320  05EA                     l938:	
+  1321  05EA  189F               	btfsc	(249/8),(249)&7
+  1322  05EB  2DED               	goto	u2931
+  1323  05EC  2DEE               	goto	u2930
+  1324  05ED                     u2931:
+  1325  05ED  2DEA               	goto	l938
+  1326  05EE                     u2930:
+  1327  05EE  2DEF               	goto	l3528
+  1328                           	
+  1329  05EF                     l940:	
+  1330                           	line	157
+  1331                           	
+  1332  05EF                     l3528:	
+  1333                           ;finalfinal.c: 157: rightSensor=ADRESH;
+  1334  05EF  081E               	movf	(30),w	;volatile
+  1335  05F0  00F7               	movwf	(??_main+0)+0
+  1336  05F1  0877               	movf	(??_main+0)+0,w
+  1337  05F2  00FD               	movwf	(_rightSensor)
+  1338                           	line	158
+  1339                           ;finalfinal.c: 158: _delay(10);
+  1340                           	opt asmopt_off
+  1341  05F3  3003               movlw	3
+  1342  05F4  00F7               movwf	(??_main+0)+0,f
+  1343  05F5                     u3317:
+  1344  05F5  0BF7               decfsz	(??_main+0)+0,f
+  1345  05F6  2DF5               	goto	u3317
+  1346                           opt asmopt_on
+  1347                           
+  1348                           	line	161
+  1349                           	
+  1350  05F7                     l3530:	
+  1351                           ;finalfinal.c: 161: ADCON0bits.CHS=0B1010;
+  1352  05F7  1283               	bcf	status, 5	;RP0=0, select bank0
+  1353  05F8  1303               	bcf	status, 6	;RP1=0, select bank0
+  1354  05F9  081F               	movf	(31),w	;volatile
+  1355  05FA  39C3               	andlw	not (((1<<4)-1)<<2)
+  1356  05FB  3828               	iorlw	(0Ah & ((1<<4)-1))<<2
+  1357  05FC  009F               	movwf	(31)	;volatile
+  1358                           	line	162
+  1359                           	
+  1360  05FD                     l3532:	
+  1361                           ;finalfinal.c: 162: GO_DONE=1;
+  1362  05FD  149F               	bsf	(249/8),(249)&7
+  1363                           	line	163
+  1364                           ;finalfinal.c: 163: while(GO_DONE==1){}
+  1365  05FE  2DFF               	goto	l941
+  1366                           	
+  1367  05FF                     l942:	
+  1368                           	
+  1369  05FF                     l941:	
+  1370  05FF  189F               	btfsc	(249/8),(249)&7
+  1371  0600  2E02               	goto	u2941
+  1372  0601  2E03               	goto	u2940
+  1373  0602                     u2941:
+  1374  0602  2DFF               	goto	l941
+  1375  0603                     u2940:
+  1376  0603  2E04               	goto	l3534
+  1377                           	
+  1378  0604                     l943:	
+  1379                           	line	164
+  1380                           	
+  1381  0604                     l3534:	
+  1382                           ;finalfinal.c: 164: leftSensor=ADRESH;
+  1383  0604  081E               	movf	(30),w	;volatile
+  1384  0605  00F7               	movwf	(??_main+0)+0
+  1385  0606  0877               	movf	(??_main+0)+0,w
+  1386  0607  00A2               	movwf	(_leftSensor)
+  1387                           	line	165
+  1388                           ;finalfinal.c: 165: _delay(10);
+  1389                           	opt asmopt_off
+  1390  0608  3003               movlw	3
+  1391  0609  00F7               movwf	(??_main+0)+0,f
+  1392  060A                     u3327:
+  1393  060A  0BF7               decfsz	(??_main+0)+0,f
+  1394  060B  2E0A               	goto	u3327
+  1395                           opt asmopt_on
+  1396                           
+  1397                           	line	166
+  1398                           ;finalfinal.c: 166: if ((rightSensor>145)||(leftSensor>145))
+  1399  060C  3092               	movlw	(092h)
+  1400  060D  027D               	subwf	(_rightSensor),w
+  1401  060E  1803               	skipnc
+  1402  060F  2E11               	goto	u2951
+  1403  0610  2E12               	goto	u2950
+  1404  0611                     u2951:
+  1405  0611  2E1A               	goto	l946
+  1406  0612                     u2950:
+  1407                           	
+  1408  0612                     l3536:	
+  1409  0612  3092               	movlw	(092h)
+  1410  0613  1283               	bcf	status, 5	;RP0=0, select bank0
+  1411  0614  1303               	bcf	status, 6	;RP1=0, select bank0
+  1412  0615  0222               	subwf	(_leftSensor),w
+  1413  0616  1C03               	skipc
+  1414  0617  2E19               	goto	u2961
+  1415  0618  2E1A               	goto	u2960
+  1416  0619                     u2961:
+  1417  0619  2E33               	goto	l3542
+  1418  061A                     u2960:
+  1419                           	
+  1420  061A                     l946:	
+  1421                           	line	169
+  1422                           ;finalfinal.c: 167: {
+  1423                           ;finalfinal.c: 169: RC0=0, RC1=1, RC3=1, RC4=0;
+  1424  061A  1283               	bcf	status, 5	;RP0=0, select bank0
+  1425  061B  1303               	bcf	status, 6	;RP1=0, select bank0
+  1426  061C  1007               	bcf	(56/8),(56)&7
+  1427  061D  1487               	bsf	(57/8),(57)&7
+  1428  061E  1587               	bsf	(59/8),(59)&7
+  1429  061F  1207               	bcf	(60/8),(60)&7
+  1430                           	line	170
+  1431                           	
+  1432  0620                     l3538:	
+  1433                           ;finalfinal.c: 170: _delay(900000);
+  1434                           	opt asmopt_off
+  1435  0620  3005               movlw  5
+  1436  0621  00F9               movwf	((??_main+0)+0+2),f
+  1437  0622  3091               movlw	145
+  1438  0623  00F8               movwf	((??_main+0)+0+1),f
+  1439  0624  30D2               	movlw	210
+  1440  0625  00F7               movwf	((??_main+0)+0),f
+  1441  0626                     u3337:
+  1442  0626  0BF7               	decfsz	((??_main+0)+0),f
+  1443  0627  2E26               	goto	u3337
+  1444  0628  0BF8               	decfsz	((??_main+0)+0+1),f
+  1445  0629  2E26               	goto	u3337
+  1446  062A  0BF9               	decfsz	((??_main+0)+0+2),f
+  1447  062B  2E26               	goto	u3337
+  1448  062C  2E2D               	nop2
+  1449                           opt asmopt_on
+  1450                           
+  1451                           	line	171
+  1452                           ;finalfinal.c: 171: onBlack=7;
+  1453  062D  3007               	movlw	low(07h)
+  1454  062E  00FB               	movwf	(_onBlack)
+  1455  062F  3000               	movlw	high(07h)
+  1456  0630  00FC               	movwf	((_onBlack))+1
+  1457                           	line	172
+  1458                           ;finalfinal.c: 172: break;
+  1459  0631  2E47               	goto	l3546
+  1460                           	line	173
+  1461                           	
+  1462  0632                     l3540:	
+  1463                           ;finalfinal.c: 173: }
+  1464  0632  2D54               	goto	l3492
+  1465                           	line	174
+  1466                           	
+  1467  0633                     l944:	
+  1468                           	line	176
+  1469                           	
+  1470  0633                     l3542:	
+  1471                           ;finalfinal.c: 174: else
+  1472                           ;finalfinal.c: 175: {
+  1473                           ;finalfinal.c: 176: lines++;
+  1474  0633  3001               	movlw	low(01h)
+  1475  0634  1283               	bcf	status, 5	;RP0=0, select bank0
+  1476  0635  1303               	bcf	status, 6	;RP1=0, select bank0
+  1477  0636  07A0               	addwf	(_lines),f
+  1478  0637  1803               	skipnc
+  1479  0638  0AA1               	incf	(_lines+1),f
+  1480  0639  3000               	movlw	high(01h)
+  1481  063A  07A1               	addwf	(_lines+1),f
+  1482                           	line	177
+  1483                           	
+  1484  063B                     l3544:	
+  1485                           ;finalfinal.c: 177: RC5=1;
+  1486  063B  1687               	bsf	(61/8),(61)&7
+  1487                           	line	178
+  1488                           ;finalfinal.c: 178: _delay(1000);
+  1489                           	opt asmopt_off
+  1490  063C  30F9               movlw	249
+  1491  063D  00F7               movwf	(??_main+0)+0,f
+  1492  063E                     u3347:
+  1493  063E  0064               	clrwdt
+  1494  063F  0BF7               decfsz	(??_main+0)+0,f
+  1495  0640  2E3E               	goto	u3347
+  1496  0641  2E42               	nop2	;nop
+  1497  0642  0064               	clrwdt
+  1498                           opt asmopt_on
+  1499                           
+  1500  0643  2D54               	goto	l3492
+  1501                           	line	179
+  1502                           	
+  1503  0644                     l948:	
+  1504  0644  2D54               	goto	l3492
+  1505                           	line	181
+  1506                           	
+  1507  0645                     l935:	
+  1508  0645  2D54               	goto	l3492
+  1509                           	line	183
+  1510                           	
+  1511  0646                     l949:	
+  1512                           	line	118
+  1513  0646  2D54               	goto	l3492
+  1514                           	
+  1515  0647                     l947:	
+  1516                           	line	185
+  1517                           	
+  1518  0647                     l3546:	
+  1519                           ;finalfinal.c: 179: }
+  1520                           ;finalfinal.c: 181: }
+  1521                           ;finalfinal.c: 183: }
+  1522                           ;finalfinal.c: 185: PORTC=0b00000000;
+  1523  0647  1283               	bcf	status, 5	;RP0=0, select bank0
+  1524  0648  1303               	bcf	status, 6	;RP1=0, select bank0
+  1525  0649  0187               	clrf	(7)	;volatile
+  1526                           	line	186
+  1527                           	
+  1528  064A                     l3548:	
+  1529                           ;finalfinal.c: 186: _delay(500);
+  1530                           	opt asmopt_off
+  1531  064A  30A6               movlw	166
+  1532  064B  00F7               movwf	(??_main+0)+0,f
+  1533  064C                     u3357:
+  1534  064C  0BF7               decfsz	(??_main+0)+0,f
+  1535  064D  2E4C               	goto	u3357
+  1536  064E  0064               	clrwdt
+  1537                           opt asmopt_on
+  1538                           
+  1539                           	line	187
+  1540                           	
+  1541  064F                     l3550:	
+  1542                           ;finalfinal.c: 187: unsigned char index=1;
+  1543  064F  01FA               	clrf	(main@index)
+  1544  0650  1403               	bsf	status,0
+  1545  0651  0DFA               	rlf	(main@index),f
+  1546                           	line	188
+  1547                           ;finalfinal.c: 188: while (index<=lines)
+  1548  0652  2E78               	goto	l3562
+  1549                           	
+  1550  0653                     l951:	
+  1551                           	line	190
+  1552                           	
+  1553  0653                     l3552:	
+  1554                           ;finalfinal.c: 189: {
+  1555                           ;finalfinal.c: 190: PORTC=0b00000000;
+  1556  0653  1283               	bcf	status, 5	;RP0=0, select bank0
+  1557  0654  1303               	bcf	status, 6	;RP1=0, select bank0
+  1558  0655  0187               	clrf	(7)	;volatile
+  1559                           	line	191
+  1560                           	
+  1561  0656                     l3554:	
+  1562                           ;finalfinal.c: 191: _delay(500000);
+  1563                           	opt asmopt_off
+  1564  0656  3003               movlw  3
+  1565  0657  00F9               movwf	((??_main+0)+0+2),f
+  1566  0658  308A               movlw	138
+  1567  0659  00F8               movwf	((??_main+0)+0+1),f
+  1568  065A  3056               	movlw	86
+  1569  065B  00F7               movwf	((??_main+0)+0),f
+  1570  065C                     u3367:
+  1571  065C  0BF7               	decfsz	((??_main+0)+0),f
+  1572  065D  2E5C               	goto	u3367
+  1573  065E  0BF8               	decfsz	((??_main+0)+0+1),f
+  1574  065F  2E5C               	goto	u3367
+  1575  0660  0BF9               	decfsz	((??_main+0)+0+2),f
+  1576  0661  2E5C               	goto	u3367
+  1577  0662  2E63               	nop2
+  1578                           opt asmopt_on
+  1579                           
+  1580                           	line	192
+  1581                           	
+  1582  0663                     l3556:	
+  1583                           ;finalfinal.c: 192: RC5=1;
+  1584  0663  1283               	bcf	status, 5	;RP0=0, select bank0
+  1585  0664  1303               	bcf	status, 6	;RP1=0, select bank0
+  1586  0665  1687               	bsf	(61/8),(61)&7
+  1587                           	line	193
+  1588                           	
+  1589  0666                     l3558:	
+  1590                           ;finalfinal.c: 193: _delay(500000);
+  1591                           	opt asmopt_off
+  1592  0666  3003               movlw  3
+  1593  0667  00F9               movwf	((??_main+0)+0+2),f
+  1594  0668  308A               movlw	138
+  1595  0669  00F8               movwf	((??_main+0)+0+1),f
+  1596  066A  3056               	movlw	86
+  1597  066B  00F7               movwf	((??_main+0)+0),f
+  1598  066C                     u3377:
+  1599  066C  0BF7               	decfsz	((??_main+0)+0),f
+  1600  066D  2E6C               	goto	u3377
+  1601  066E  0BF8               	decfsz	((??_main+0)+0+1),f
+  1602  066F  2E6C               	goto	u3377
+  1603  0670  0BF9               	decfsz	((??_main+0)+0+2),f
+  1604  0671  2E6C               	goto	u3377
+  1605  0672  2E73               	nop2
+  1606                           opt asmopt_on
+  1607                           
+  1608                           	line	194
+  1609                           	
+  1610  0673                     l3560:	
+  1611                           ;finalfinal.c: 194: index++;
+  1612  0673  3001               	movlw	(01h)
+  1613  0674  00F7               	movwf	(??_main+0)+0
+  1614  0675  0877               	movf	(??_main+0)+0,w
+  1615  0676  07FA               	addwf	(main@index),f
+  1616  0677  2E78               	goto	l3562
+  1617                           	line	195
+  1618                           	
+  1619  0678                     l950:	
+  1620                           	line	188
+  1621                           	
+  1622  0678                     l3562:	
+  1623  0678  1283               	bcf	status, 5	;RP0=0, select bank0
+  1624  0679  1303               	bcf	status, 6	;RP1=0, select bank0
+  1625  067A  0821               	movf	(_lines+1),w
+  1626  067B  3A80               	xorlw	80h
+  1627  067C  00F7               	movwf	(??_main+0)+0
+  1628  067D  3080               	movlw	80h
+  1629  067E  0277               	subwf	(??_main+0)+0,w
+  1630  067F  1D03               	skipz
+  1631  0680  2E83               	goto	u2975
+  1632  0681  087A               	movf	(main@index),w
+  1633  0682  0220               	subwf	(_lines),w
+  1634  0683                     u2975:
+  1635                           
+  1636  0683  1803               	skipnc
+  1637  0684  2E86               	goto	u2971
+  1638  0685  2E87               	goto	u2970
+  1639  0686                     u2971:
+  1640  0686  2E53               	goto	l3552
+  1641  0687                     u2970:
+  1642  0687  2C01               	goto	l3402
+  1643                           	
+  1644  0688                     l952:	
+  1645                           	line	196
+  1646                           ;finalfinal.c: 195: }
+  1647                           ;finalfinal.c: 196: }
+  1648  0688  2C01               	goto	l3402
+  1649                           	line	197
+  1650                           	
+  1651  0689                     l925:	
+  1652                           	
+  1653  0689                     l3564:	
+  1654                           ;finalfinal.c: 197: else if(onBlack==7)
+  1655  0689  3007               	movlw	07h
+  1656  068A  067B               	xorwf	(_onBlack),w
+  1657  068B  047C               	iorwf	(_onBlack+1),w
+  1658  068C  1D03               	skipz
+  1659  068D  2E8F               	goto	u2981
+  1660  068E  2E90               	goto	u2980
+  1661  068F                     u2981:
+  1662  068F  2ECF               	goto	l3580
+  1663  0690                     u2980:
+  1664                           	line	200
+  1665                           	
+  1666  0690                     l3566:	
+  1667                           ;finalfinal.c: 198: {
+  1668                           ;finalfinal.c: 200: RC0=1, RC1=0, RC3=1, RC4=0;
+  1669  0690  1283               	bcf	status, 5	;RP0=0, select bank0
+  1670  0691  1303               	bcf	status, 6	;RP1=0, select bank0
+  1671  0692  1407               	bsf	(56/8),(56)&7
+  1672  0693  1087               	bcf	(57/8),(57)&7
+  1673  0694  1587               	bsf	(59/8),(59)&7
+  1674  0695  1207               	bcf	(60/8),(60)&7
+  1675                           	line	201
+  1676                           ;finalfinal.c: 201: RC7=1;
+  1677  0696  1787               	bsf	(63/8),(63)&7
+  1678                           	line	202
+  1679                           	
+  1680  0697                     l3568:	
+  1681                           ;finalfinal.c: 202: _delay(450000);
+  1682                           	opt asmopt_off
+  1683  0697  3003               movlw  3
+  1684  0698  00F9               movwf	((??_main+0)+0+2),f
+  1685  0699  3049               movlw	73
+  1686  069A  00F8               movwf	((??_main+0)+0+1),f
+  1687  069B  3067               	movlw	103
+  1688  069C  00F7               movwf	((??_main+0)+0),f
+  1689  069D                     u3387:
+  1690  069D  0BF7               	decfsz	((??_main+0)+0),f
+  1691  069E  2E9D               	goto	u3387
+  1692  069F  0BF8               	decfsz	((??_main+0)+0+1),f
+  1693  06A0  2E9D               	goto	u3387
+  1694  06A1  0BF9               	decfsz	((??_main+0)+0+2),f
+  1695  06A2  2E9D               	goto	u3387
+  1696  06A3  0064               	clrwdt
+  1697                           opt asmopt_on
+  1698                           
+  1699                           	line	203
+  1700                           ;finalfinal.c: 203: if ((lines==2)||(lines==0))
+  1701  06A4  3002               	movlw	02h
+  1702  06A5  1283               	bcf	status, 5	;RP0=0, select bank0
+  1703  06A6  1303               	bcf	status, 6	;RP1=0, select bank0
+  1704  06A7  0620               	xorwf	(_lines),w
+  1705  06A8  0421               	iorwf	(_lines+1),w
+  1706  06A9  1903               	skipnz
+  1707  06AA  2EAC               	goto	u2991
+  1708  06AB  2EAD               	goto	u2990
+  1709  06AC                     u2991:
+  1710  06AC  2EB4               	goto	l3572
+  1711  06AD                     u2990:
+  1712                           	
+  1713  06AD                     l3570:	
+  1714  06AD  0821               	movf	((_lines+1)),w
+  1715  06AE  0420               	iorwf	((_lines)),w
+  1716  06AF  1D03               	skipz
+  1717  06B0  2EB2               	goto	u3001
+  1718  06B1  2EB3               	goto	u3000
+  1719  06B2                     u3001:
+  1720  06B2  2EB9               	goto	l3574
+  1721  06B3                     u3000:
+  1722  06B3  2EB4               	goto	l3572
+  1723                           	
+  1724  06B4                     l957:	
+  1725                           	line	205
+  1726                           	
+  1727  06B4                     l3572:	
+  1728                           ;finalfinal.c: 204: {
+  1729                           ;finalfinal.c: 205: onBlack=8;
+  1730  06B4  3008               	movlw	low(08h)
+  1731  06B5  00FB               	movwf	(_onBlack)
+  1732  06B6  3000               	movlw	high(08h)
+  1733  06B7  00FC               	movwf	((_onBlack))+1
+  1734                           	line	206
+  1735                           ;finalfinal.c: 206: }
+  1736  06B8  2C01               	goto	l3402
+  1737                           	line	207
+  1738                           	
+  1739  06B9                     l955:	
+  1740                           	
+  1741  06B9                     l3574:	
+  1742                           ;finalfinal.c: 207: else if ((lines==1)||(lines==3))
+  1743  06B9  3001               	movlw	01h
+  1744  06BA  0620               	xorwf	(_lines),w
+  1745  06BB  0421               	iorwf	(_lines+1),w
+  1746  06BC  1903               	skipnz
+  1747  06BD  2EBF               	goto	u3011
+  1748  06BE  2EC0               	goto	u3010
+  1749  06BF                     u3011:
+  1750  06BF  2EC8               	goto	l3578
+  1751  06C0                     u3010:
+  1752                           	
+  1753  06C0                     l3576:	
+  1754  06C0  3003               	movlw	03h
+  1755  06C1  0620               	xorwf	(_lines),w
+  1756  06C2  0421               	iorwf	(_lines+1),w
+  1757  06C3  1D03               	skipz
+  1758  06C4  2EC6               	goto	u3021
+  1759  06C5  2EC7               	goto	u3020
+  1760  06C6                     u3021:
+  1761  06C6  2C01               	goto	l3402
+  1762  06C7                     u3020:
+  1763  06C7  2EC8               	goto	l3578
+  1764                           	
+  1765  06C8                     l961:	
+  1766                           	line	209
+  1767                           	
+  1768  06C8                     l3578:	
+  1769                           ;finalfinal.c: 208: {
+  1770                           ;finalfinal.c: 209: onBlack=9;
+  1771  06C8  3009               	movlw	low(09h)
+  1772  06C9  00FB               	movwf	(_onBlack)
+  1773  06CA  3000               	movlw	high(09h)
+  1774  06CB  00FC               	movwf	((_onBlack))+1
+  1775  06CC  2C01               	goto	l3402
+  1776                           	line	210
+  1777                           	
+  1778  06CD                     l959:	
+  1779  06CD  2C01               	goto	l3402
+  1780                           	line	211
+  1781                           	
+  1782  06CE                     l958:	
+  1783                           ;finalfinal.c: 210: }
+  1784                           ;finalfinal.c: 211: }
+  1785  06CE  2C01               	goto	l3402
+  1786                           	line	212
+  1787                           	
+  1788  06CF                     l954:	
+  1789                           	
+  1790  06CF                     l3580:	
+  1791                           ;finalfinal.c: 212: else if (onBlack==8)
+  1792  06CF  3008               	movlw	08h
+  1793  06D0  067B               	xorwf	(_onBlack),w
+  1794  06D1  047C               	iorwf	(_onBlack+1),w
+  1795  06D2  1D03               	skipz
+  1796  06D3  2ED5               	goto	u3031
+  1797  06D4  2ED6               	goto	u3030
+  1798  06D5                     u3031:
+  1799  06D5  2F05               	goto	l3592
+  1800  06D6                     u3030:
+  1801                           	line	215
+  1802                           	
+  1803  06D6                     l3582:	
+  1804                           ;finalfinal.c: 213: {
+  1805                           ;finalfinal.c: 215: RC0=0, RC1=1, RC3=1, RC4=0;
+  1806  06D6  1283               	bcf	status, 5	;RP0=0, select bank0
+  1807  06D7  1303               	bcf	status, 6	;RP1=0, select bank0
+  1808  06D8  1007               	bcf	(56/8),(56)&7
+  1809  06D9  1487               	bsf	(57/8),(57)&7
+  1810  06DA  1587               	bsf	(59/8),(59)&7
+  1811  06DB  1207               	bcf	(60/8),(60)&7
+  1812                           	line	216
+  1813                           ;finalfinal.c: 216: RC6=1;
+  1814  06DC  1707               	bsf	(62/8),(62)&7
+  1815                           	line	217
+  1816                           	
+  1817  06DD                     l3584:	
+  1818                           ;finalfinal.c: 217: _delay(450000);
+  1819                           	opt asmopt_off
+  1820  06DD  3003               movlw  3
+  1821  06DE  00F9               movwf	((??_main+0)+0+2),f
+  1822  06DF  3049               movlw	73
+  1823  06E0  00F8               movwf	((??_main+0)+0+1),f
+  1824  06E1  3067               	movlw	103
+  1825  06E2  00F7               movwf	((??_main+0)+0),f
+  1826  06E3                     u3397:
+  1827  06E3  0BF7               	decfsz	((??_main+0)+0),f
+  1828  06E4  2EE3               	goto	u3397
+  1829  06E5  0BF8               	decfsz	((??_main+0)+0+1),f
+  1830  06E6  2EE3               	goto	u3397
+  1831  06E7  0BF9               	decfsz	((??_main+0)+0+2),f
+  1832  06E8  2EE3               	goto	u3397
+  1833  06E9  0064               	clrwdt
+  1834                           opt asmopt_on
+  1835                           
+  1836                           	line	218
+  1837                           ;finalfinal.c: 218: if(lines==2)
+  1838  06EA  3002               	movlw	02h
+  1839  06EB  1283               	bcf	status, 5	;RP0=0, select bank0
+  1840  06EC  1303               	bcf	status, 6	;RP1=0, select bank0
+  1841  06ED  0620               	xorwf	(_lines),w
+  1842  06EE  0421               	iorwf	(_lines+1),w
+  1843  06EF  1D03               	skipz
+  1844  06F0  2EF2               	goto	u3041
+  1845  06F1  2EF3               	goto	u3040
+  1846  06F2                     u3041:
+  1847  06F2  2EF8               	goto	l3588
+  1848  06F3                     u3040:
+  1849                           	line	220
+  1850                           	
+  1851  06F3                     l3586:	
+  1852                           ;finalfinal.c: 219: {
+  1853                           ;finalfinal.c: 220: onBlack=10;
+  1854  06F3  300A               	movlw	low(0Ah)
+  1855  06F4  00FB               	movwf	(_onBlack)
+  1856  06F5  3000               	movlw	high(0Ah)
+  1857  06F6  00FC               	movwf	((_onBlack))+1
+  1858                           	line	221
+  1859                           ;finalfinal.c: 221: }
+  1860  06F7  2C01               	goto	l3402
+  1861                           	line	222
+  1862                           	
+  1863  06F8                     l964:	
+  1864                           	
+  1865  06F8                     l3588:	
+  1866                           ;finalfinal.c: 222: else if (lines==0)
+  1867  06F8  0821               	movf	((_lines+1)),w
+  1868  06F9  0420               	iorwf	((_lines)),w
+  1869  06FA  1D03               	skipz
+  1870  06FB  2EFD               	goto	u3051
+  1871  06FC  2EFE               	goto	u3050
+  1872  06FD                     u3051:
+  1873  06FD  2C01               	goto	l3402
+  1874  06FE                     u3050:
+  1875                           	line	224
+  1876                           	
+  1877  06FE                     l3590:	
+  1878                           ;finalfinal.c: 223: {
+  1879                           ;finalfinal.c: 224: onBlack=11;
+  1880  06FE  300B               	movlw	low(0Bh)
+  1881  06FF  00FB               	movwf	(_onBlack)
+  1882  0700  3000               	movlw	high(0Bh)
+  1883  0701  00FC               	movwf	((_onBlack))+1
+  1884  0702  2C01               	goto	l3402
+  1885                           	line	225
+  1886                           	
+  1887  0703                     l966:	
+  1888  0703  2C01               	goto	l3402
+  1889                           	line	226
+  1890                           	
+  1891  0704                     l965:	
+  1892                           ;finalfinal.c: 225: }
+  1893                           ;finalfinal.c: 226: }
+  1894  0704  2C01               	goto	l3402
+  1895                           	line	227
+  1896                           	
+  1897  0705                     l963:	
+  1898                           	
+  1899  0705                     l3592:	
+  1900                           ;finalfinal.c: 227: else if (onBlack==9)
+  1901  0705  3009               	movlw	09h
+  1902  0706  067B               	xorwf	(_onBlack),w
+  1903  0707  047C               	iorwf	(_onBlack+1),w
+  1904  0708  1D03               	skipz
+  1905  0709  2F0B               	goto	u3061
+  1906  070A  2F0C               	goto	u3060
+  1907  070B                     u3061:
+  1908  070B  2F4C               	goto	l3614
+  1909  070C                     u3060:
+  1910                           	line	230
+  1911                           	
+  1912  070C                     l3594:	
+  1913                           ;finalfinal.c: 228: {
+  1914                           ;finalfinal.c: 230: RC0=1, RC1=0, RC3=1, RC4=0;
+  1915  070C  1283               	bcf	status, 5	;RP0=0, select bank0
+  1916  070D  1303               	bcf	status, 6	;RP1=0, select bank0
+  1917  070E  1407               	bsf	(56/8),(56)&7
+  1918  070F  1087               	bcf	(57/8),(57)&7
+  1919  0710  1587               	bsf	(59/8),(59)&7
+  1920  0711  1207               	bcf	(60/8),(60)&7
+  1921                           	line	231
+  1922                           ;finalfinal.c: 231: RC7=1;
+  1923  0712  1787               	bsf	(63/8),(63)&7
+  1924                           	line	232
+  1925                           	
+  1926  0713                     l3596:	
+  1927                           ;finalfinal.c: 232: _delay(100000);
+  1928                           	opt asmopt_off
+  1929  0713  3082               movlw	130
+  1930  0714  00F8               movwf	((??_main+0)+0+1),f
+  1931  0715  30DD               	movlw	221
+  1932  0716  00F7               movwf	((??_main+0)+0),f
+  1933  0717                     u3407:
+  1934  0717  0BF7               	decfsz	((??_main+0)+0),f
+  1935  0718  2F17               	goto	u3407
+  1936  0719  0BF8               	decfsz	((??_main+0)+0+1),f
+  1937  071A  2F17               	goto	u3407
+  1938  071B  2F1C               	nop2
+  1939                           opt asmopt_on
+  1940                           
+  1941                           	line	234
+  1942                           	
+  1943  071C                     l3598:	
+  1944                           ;finalfinal.c: 234: RC0=1, RC1=0, RC3=0, RC4=1;
+  1945  071C  1283               	bcf	status, 5	;RP0=0, select bank0
+  1946  071D  1303               	bcf	status, 6	;RP1=0, select bank0
+  1947  071E  1407               	bsf	(56/8),(56)&7
+  1948                           	
+  1949  071F                     l3600:	
+  1950  071F  1087               	bcf	(57/8),(57)&7
+  1951                           	
+  1952  0720                     l3602:	
+  1953  0720  1187               	bcf	(59/8),(59)&7
+  1954                           	
+  1955  0721                     l3604:	
+  1956  0721  1607               	bsf	(60/8),(60)&7
+  1957                           	line	235
+  1958                           	
+  1959  0722                     l3606:	
+  1960                           ;finalfinal.c: 235: RC6=1;
+  1961  0722  1707               	bsf	(62/8),(62)&7
+  1962                           	line	236
+  1963                           ;finalfinal.c: 236: _delay(450000);
+  1964                           	opt asmopt_off
+  1965  0723  3003               movlw  3
+  1966  0724  00F9               movwf	((??_main+0)+0+2),f
+  1967  0725  3049               movlw	73
+  1968  0726  00F8               movwf	((??_main+0)+0+1),f
+  1969  0727  3067               	movlw	103
+  1970  0728  00F7               movwf	((??_main+0)+0),f
+  1971  0729                     u3417:
+  1972  0729  0BF7               	decfsz	((??_main+0)+0),f
+  1973  072A  2F29               	goto	u3417
+  1974  072B  0BF8               	decfsz	((??_main+0)+0+1),f
+  1975  072C  2F29               	goto	u3417
+  1976  072D  0BF9               	decfsz	((??_main+0)+0+2),f
+  1977  072E  2F29               	goto	u3417
+  1978  072F  0064               	clrwdt
+  1979                           opt asmopt_on
+  1980                           
+  1981                           	line	237
+  1982                           ;finalfinal.c: 237: if(lines==3)
+  1983  0730  3003               	movlw	03h
+  1984  0731  1283               	bcf	status, 5	;RP0=0, select bank0
+  1985  0732  1303               	bcf	status, 6	;RP1=0, select bank0
+  1986  0733  0620               	xorwf	(_lines),w
+  1987  0734  0421               	iorwf	(_lines+1),w
+  1988  0735  1D03               	skipz
+  1989  0736  2F38               	goto	u3071
+  1990  0737  2F39               	goto	u3070
+  1991  0738                     u3071:
+  1992  0738  2F3E               	goto	l3610
+  1993  0739                     u3070:
+  1994                           	line	239
+  1995                           	
+  1996  0739                     l3608:	
+  1997                           ;finalfinal.c: 238: {
+  1998                           ;finalfinal.c: 239: onBlack=12;
+  1999  0739  300C               	movlw	low(0Ch)
+  2000  073A  00FB               	movwf	(_onBlack)
+  2001  073B  3000               	movlw	high(0Ch)
+  2002  073C  00FC               	movwf	((_onBlack))+1
+  2003                           	line	240
+  2004                           ;finalfinal.c: 240: }
+  2005  073D  2C01               	goto	l3402
+  2006                           	line	241
+  2007                           	
+  2008  073E                     l969:	
+  2009                           	
+  2010  073E                     l3610:	
+  2011                           ;finalfinal.c: 241: else if (lines==1)
+  2012  073E  3001               	movlw	01h
+  2013  073F  0620               	xorwf	(_lines),w
+  2014  0740  0421               	iorwf	(_lines+1),w
+  2015  0741  1D03               	skipz
+  2016  0742  2F44               	goto	u3081
+  2017  0743  2F45               	goto	u3080
+  2018  0744                     u3081:
+  2019  0744  2C01               	goto	l3402
+  2020  0745                     u3080:
+  2021                           	line	243
+  2022                           	
+  2023  0745                     l3612:	
+  2024                           ;finalfinal.c: 242: {
+  2025                           ;finalfinal.c: 243: onBlack=13;
+  2026  0745  300D               	movlw	low(0Dh)
+  2027  0746  00FB               	movwf	(_onBlack)
+  2028  0747  3000               	movlw	high(0Dh)
+  2029  0748  00FC               	movwf	((_onBlack))+1
+  2030  0749  2C01               	goto	l3402
+  2031                           	line	244
+  2032                           	
+  2033  074A                     l971:	
+  2034  074A  2C01               	goto	l3402
+  2035                           	line	245
+  2036                           	
+  2037  074B                     l970:	
+  2038                           ;finalfinal.c: 244: }
+  2039                           ;finalfinal.c: 245: }
+  2040  074B  2C01               	goto	l3402
+  2041                           	line	246
+  2042                           	
+  2043  074C                     l968:	
+  2044                           	
+  2045  074C                     l3614:	
+  2046                           ;finalfinal.c: 246: else if (onBlack==10)
+  2047  074C  300A               	movlw	0Ah
+  2048  074D  067B               	xorwf	(_onBlack),w
+  2049  074E  047C               	iorwf	(_onBlack+1),w
+  2050  074F  1D03               	skipz
+  2051  0750  2F52               	goto	u3091
+  2052  0751  2F53               	goto	u3090
+  2053  0752                     u3091:
+  2054  0752  2F7C               	goto	l3630
+  2055  0753                     u3090:
+  2056                           	line	249
+  2057                           	
+  2058  0753                     l3616:	
+  2059                           ;finalfinal.c: 247: {
+  2060                           ;finalfinal.c: 249: RC0=1, RC1=0, RC3=1, RC4=0;
+  2061  0753  1283               	bcf	status, 5	;RP0=0, select bank0
+  2062  0754  1303               	bcf	status, 6	;RP1=0, select bank0
+  2063  0755  1407               	bsf	(56/8),(56)&7
+  2064  0756  1087               	bcf	(57/8),(57)&7
+  2065  0757  1587               	bsf	(59/8),(59)&7
+  2066  0758  1207               	bcf	(60/8),(60)&7
+  2067                           	line	250
+  2068                           ;finalfinal.c: 250: RC7=1;
+  2069  0759  1787               	bsf	(63/8),(63)&7
+  2070                           	line	251
+  2071                           	
+  2072  075A                     l3618:	
+  2073                           ;finalfinal.c: 251: _delay(130000);
+  2074                           	opt asmopt_off
+  2075  075A  30A9               movlw	169
+  2076  075B  00F8               movwf	((??_main+0)+0+1),f
+  2077  075C  30D3               	movlw	211
+  2078  075D  00F7               movwf	((??_main+0)+0),f
+  2079  075E                     u3427:
+  2080  075E  0BF7               	decfsz	((??_main+0)+0),f
+  2081  075F  2F5E               	goto	u3427
+  2082  0760  0BF8               	decfsz	((??_main+0)+0+1),f
+  2083  0761  2F5E               	goto	u3427
+  2084  0762  2F63               	nop2
+  2085                           opt asmopt_on
+  2086                           
+  2087                           	line	253
+  2088                           	
+  2089  0763                     l3620:	
+  2090                           ;finalfinal.c: 253: RC0=1, RC1=0, RC3=0, RC4=1;
+  2091  0763  1283               	bcf	status, 5	;RP0=0, select bank0
+  2092  0764  1303               	bcf	status, 6	;RP1=0, select bank0
+  2093  0765  1407               	bsf	(56/8),(56)&7
+  2094                           	
+  2095  0766                     l3622:	
+  2096  0766  1087               	bcf	(57/8),(57)&7
+  2097                           	
+  2098  0767                     l3624:	
+  2099  0767  1187               	bcf	(59/8),(59)&7
+  2100                           	
+  2101  0768                     l3626:	
+  2102  0768  1607               	bsf	(60/8),(60)&7
+  2103                           	line	254
+  2104                           	
+  2105  0769                     l3628:	
+  2106                           ;finalfinal.c: 254: RC6=1;
+  2107  0769  1707               	bsf	(62/8),(62)&7
+  2108                           	line	255
+  2109                           ;finalfinal.c: 255: _delay(350000);
+  2110                           	opt asmopt_off
+  2111  076A  3002               movlw  2
+  2112  076B  00F9               movwf	((??_main+0)+0+2),f
+  2113  076C  30C7               movlw	199
+  2114  076D  00F8               movwf	((??_main+0)+0+1),f
+  2115  076E  3088               	movlw	136
+  2116  076F  00F7               movwf	((??_main+0)+0),f
+  2117  0770                     u3437:
+  2118  0770  0BF7               	decfsz	((??_main+0)+0),f
+  2119  0771  2F70               	goto	u3437
+  2120  0772  0BF8               	decfsz	((??_main+0)+0+1),f
+  2121  0773  2F70               	goto	u3437
+  2122  0774  0BF9               	decfsz	((??_main+0)+0+2),f
+  2123  0775  2F70               	goto	u3437
+  2124  0776  0064               	clrwdt
+  2125                           opt asmopt_on
+  2126                           
+  2127                           	line	256
+  2128                           ;finalfinal.c: 256: onBlack=15;
+  2129  0777  300F               	movlw	low(0Fh)
+  2130  0778  00FB               	movwf	(_onBlack)
+  2131  0779  3000               	movlw	high(0Fh)
+  2132  077A  00FC               	movwf	((_onBlack))+1
+  2133                           	line	257
+  2134                           ;finalfinal.c: 257: }
+  2135  077B  2C01               	goto	l3402
+  2136                           	line	258
+  2137                           	
+  2138  077C                     l973:	
+  2139                           	
+  2140  077C                     l3630:	
+  2141                           ;finalfinal.c: 258: else if (onBlack==11)
+  2142  077C  300B               	movlw	0Bh
+  2143  077D  067B               	xorwf	(_onBlack),w
+  2144  077E  047C               	iorwf	(_onBlack+1),w
+  2145  077F  1D03               	skipz
+  2146  0780  2F82               	goto	u3101
+  2147  0781  2F83               	goto	u3100
+  2148  0782                     u3101:
+  2149  0782  2F9C               	goto	l3636
+  2150  0783                     u3100:
+  2151                           	line	261
+  2152                           	
+  2153  0783                     l3632:	
+  2154                           ;finalfinal.c: 259: {
+  2155                           ;finalfinal.c: 261: RC0=0, RC1=1, RC3=1, RC4=0;
+  2156  0783  1283               	bcf	status, 5	;RP0=0, select bank0
+  2157  0784  1303               	bcf	status, 6	;RP1=0, select bank0
+  2158  0785  1007               	bcf	(56/8),(56)&7
+  2159  0786  1487               	bsf	(57/8),(57)&7
+  2160  0787  1587               	bsf	(59/8),(59)&7
+  2161  0788  1207               	bcf	(60/8),(60)&7
+  2162                           	line	262
+  2163                           ;finalfinal.c: 262: RC6=1;
+  2164  0789  1707               	bsf	(62/8),(62)&7
+  2165                           	line	263
+  2166                           	
+  2167  078A                     l3634:	
+  2168                           ;finalfinal.c: 263: _delay(280000);
+  2169                           	opt asmopt_off
+  2170  078A  3002               movlw  2
+  2171  078B  00F9               movwf	((??_main+0)+0+2),f
+  2172  078C  306C               movlw	108
+  2173  078D  00F8               movwf	((??_main+0)+0+1),f
+  2174  078E  309F               	movlw	159
+  2175  078F  00F7               movwf	((??_main+0)+0),f
+  2176  0790                     u3447:
+  2177  0790  0BF7               	decfsz	((??_main+0)+0),f
+  2178  0791  2F90               	goto	u3447
+  2179  0792  0BF8               	decfsz	((??_main+0)+0+1),f
+  2180  0793  2F90               	goto	u3447
+  2181  0794  0BF9               	decfsz	((??_main+0)+0+2),f
+  2182  0795  2F90               	goto	u3447
+  2183  0796  2F97               	nop2
+  2184                           opt asmopt_on
+  2185                           
+  2186                           	line	264
+  2187                           ;finalfinal.c: 264: onBlack=10;
+  2188  0797  300A               	movlw	low(0Ah)
+  2189  0798  00FB               	movwf	(_onBlack)
+  2190  0799  3000               	movlw	high(0Ah)
+  2191  079A  00FC               	movwf	((_onBlack))+1
+  2192                           	line	265
+  2193                           ;finalfinal.c: 265: }
+  2194  079B  2C01               	goto	l3402
+  2195                           	line	266
+  2196                           	
+  2197  079C                     l975:	
+  2198                           	
+  2199  079C                     l3636:	
+  2200                           ;finalfinal.c: 266: else if (onBlack==12)
+  2201  079C  300C               	movlw	0Ch
+  2202  079D  067B               	xorwf	(_onBlack),w
+  2203  079E  047C               	iorwf	(_onBlack+1),w
+  2204  079F  1D03               	skipz
+  2205  07A0  2FA2               	goto	u3111
+  2206  07A1  2FA3               	goto	u3110
+  2207  07A2                     u3111:
+  2208  07A2  2FCC               	goto	l3652
+  2209  07A3                     u3110:
+  2210                           	line	269
+  2211                           	
+  2212  07A3                     l3638:	
+  2213                           ;finalfinal.c: 267: {
+  2214                           ;finalfinal.c: 269: RC0=1, RC1=0, RC3=1, RC4=0;
+  2215  07A3  1283               	bcf	status, 5	;RP0=0, select bank0
+  2216  07A4  1303               	bcf	status, 6	;RP1=0, select bank0
+  2217  07A5  1407               	bsf	(56/8),(56)&7
+  2218  07A6  1087               	bcf	(57/8),(57)&7
+  2219  07A7  1587               	bsf	(59/8),(59)&7
+  2220  07A8  1207               	bcf	(60/8),(60)&7
+  2221                           	line	270
+  2222                           ;finalfinal.c: 270: RC7=1;
+  2223  07A9  1787               	bsf	(63/8),(63)&7
+  2224                           	line	271
+  2225                           	
+  2226  07AA                     l3640:	
+  2227                           ;finalfinal.c: 271: _delay(165000);
+  2228                           	opt asmopt_off
+  2229  07AA  30D7               movlw	215
+  2230  07AB  00F8               movwf	((??_main+0)+0+1),f
+  2231  07AC  3047               	movlw	71
+  2232  07AD  00F7               movwf	((??_main+0)+0),f
+  2233  07AE                     u3457:
+  2234  07AE  0BF7               	decfsz	((??_main+0)+0),f
+  2235  07AF  2FAE               	goto	u3457
+  2236  07B0  0BF8               	decfsz	((??_main+0)+0+1),f
+  2237  07B1  2FAE               	goto	u3457
+  2238  07B2  2FB3               	nop2
+  2239                           opt asmopt_on
+  2240                           
+  2241                           	line	273
+  2242                           	
+  2243  07B3                     l3642:	
+  2244                           ;finalfinal.c: 273: RC0=0, RC1=1, RC3=1, RC4=0;
+  2245  07B3  1283               	bcf	status, 5	;RP0=0, select bank0
+  2246  07B4  1303               	bcf	status, 6	;RP1=0, select bank0
+  2247  07B5  1007               	bcf	(56/8),(56)&7
+  2248                           	
+  2249  07B6                     l3644:	
+  2250  07B6  1487               	bsf	(57/8),(57)&7
+  2251                           	
+  2252  07B7                     l3646:	
+  2253  07B7  1587               	bsf	(59/8),(59)&7
+  2254                           	
+  2255  07B8                     l3648:	
+  2256  07B8  1207               	bcf	(60/8),(60)&7
+  2257                           	line	274
+  2258                           	
+  2259  07B9                     l3650:	
+  2260                           ;finalfinal.c: 274: RC6=1;
+  2261  07B9  1707               	bsf	(62/8),(62)&7
+  2262                           	line	275
+  2263                           ;finalfinal.c: 275: _delay(350000);
+  2264                           	opt asmopt_off
+  2265  07BA  3002               movlw  2
+  2266  07BB  00F9               movwf	((??_main+0)+0+2),f
+  2267  07BC  30C7               movlw	199
+  2268  07BD  00F8               movwf	((??_main+0)+0+1),f
+  2269  07BE  3088               	movlw	136
+  2270  07BF  00F7               movwf	((??_main+0)+0),f
+  2271  07C0                     u3467:
+  2272  07C0  0BF7               	decfsz	((??_main+0)+0),f
+  2273  07C1  2FC0               	goto	u3467
+  2274  07C2  0BF8               	decfsz	((??_main+0)+0+1),f
+  2275  07C3  2FC0               	goto	u3467
+  2276  07C4  0BF9               	decfsz	((??_main+0)+0+2),f
+  2277  07C5  2FC0               	goto	u3467
+  2278  07C6  0064               	clrwdt
+  2279                           opt asmopt_on
+  2280                           
+  2281                           	line	276
+  2282                           ;finalfinal.c: 276: onBlack=15;
+  2283  07C7  300F               	movlw	low(0Fh)
+  2284  07C8  00FB               	movwf	(_onBlack)
+  2285  07C9  3000               	movlw	high(0Fh)
+  2286  07CA  00FC               	movwf	((_onBlack))+1
+  2287                           	line	277
+  2288                           ;finalfinal.c: 277: }
+  2289  07CB  2C01               	goto	l3402
+  2290                           	line	278
+  2291                           	
+  2292  07CC                     l977:	
+  2293                           	
+  2294  07CC                     l3652:	
+  2295                           ;finalfinal.c: 278: else if (onBlack==13)
+  2296  07CC  300D               	movlw	0Dh
+  2297  07CD  067B               	xorwf	(_onBlack),w
+  2298  07CE  047C               	iorwf	(_onBlack+1),w
+  2299  07CF  1D03               	skipz
+  2300  07D0  2FD2               	goto	u3121
+  2301  07D1  2FD3               	goto	u3120
+  2302  07D2                     u3121:
+  2303  07D2  2C01               	goto	l3402
+  2304  07D3                     u3120:
+  2305                           	line	281
+  2306                           	
+  2307  07D3                     l3654:	
+  2308                           ;finalfinal.c: 279: {
+  2309                           ;finalfinal.c: 281: RC0=1, RC1=0,RC3=0,RC4=1;
+  2310  07D3  1283               	bcf	status, 5	;RP0=0, select bank0
+  2311  07D4  1303               	bcf	status, 6	;RP1=0, select bank0
+  2312  07D5  1407               	bsf	(56/8),(56)&7
+  2313  07D6  1087               	bcf	(57/8),(57)&7
+  2314  07D7  1187               	bcf	(59/8),(59)&7
+  2315  07D8  1607               	bsf	(60/8),(60)&7
+  2316                           	line	282
+  2317                           ;finalfinal.c: 282: RC6=1;
+  2318  07D9  1707               	bsf	(62/8),(62)&7
+  2319                           	line	283
+  2320                           	
+  2321  07DA                     l3656:	
+  2322                           ;finalfinal.c: 283: _delay(280000);
+  2323                           	opt asmopt_off
+  2324  07DA  3002               movlw  2
+  2325  07DB  00F9               movwf	((??_main+0)+0+2),f
+  2326  07DC  306C               movlw	108
+  2327  07DD  00F8               movwf	((??_main+0)+0+1),f
+  2328  07DE  309F               	movlw	159
+  2329  07DF  00F7               movwf	((??_main+0)+0),f
+  2330  07E0                     u3477:
+  2331  07E0  0BF7               	decfsz	((??_main+0)+0),f
+  2332  07E1  2FE0               	goto	u3477
+  2333  07E2  0BF8               	decfsz	((??_main+0)+0+1),f
+  2334  07E3  2FE0               	goto	u3477
+  2335  07E4  0BF9               	decfsz	((??_main+0)+0+2),f
+  2336  07E5  2FE0               	goto	u3477
+  2337  07E6  2FE7               	nop2
+  2338                           opt asmopt_on
+  2339                           
+  2340                           	line	284
+  2341                           ;finalfinal.c: 284: onBlack=12;
+  2342  07E7  300C               	movlw	low(0Ch)
+  2343  07E8  00FB               	movwf	(_onBlack)
+  2344  07E9  3000               	movlw	high(0Ch)
+  2345  07EA  00FC               	movwf	((_onBlack))+1
+  2346  07EB  2C01               	goto	l3402
+  2347                           	line	285
+  2348                           	
+  2349  07EC                     l979:	
+  2350  07EC  2C01               	goto	l3402
+  2351                           	line	286
+  2352                           	
+  2353  07ED                     l978:	
+  2354  07ED  2C01               	goto	l3402
+  2355                           	
+  2356  07EE                     l976:	
+  2357  07EE  2C01               	goto	l3402
+  2358                           	
+  2359  07EF                     l974:	
+  2360  07EF  2C01               	goto	l3402
+  2361                           	
+  2362  07F0                     l972:	
+  2363  07F0  2C01               	goto	l3402
+  2364                           	
+  2365  07F1                     l967:	
+  2366  07F1  2C01               	goto	l3402
+  2367                           	
+  2368  07F2                     l962:	
+  2369  07F2  2C01               	goto	l3402
+  2370                           	
+  2371  07F3                     l953:	
+  2372  07F3  2C01               	goto	l3402
+  2373                           	
+  2374  07F4                     l924:	
+  2375  07F4  2C01               	goto	l3402
+  2376                           	
+  2377  07F5                     l922:	
+  2378  07F5  2C01               	goto	l3402
+  2379                           	
+  2380  07F6                     l920:	
+  2381  07F6  2C01               	goto	l3402
+  2382                           	
+  2383  07F7                     l918:	
+  2384  07F7  2C01               	goto	l3402
+  2385                           	
+  2386  07F8                     l916:	
+  2387  07F8  2C01               	goto	l3402
+  2388                           	
+  2389  07F9                     l914:	
+  2390  07F9  2C01               	goto	l3402
+  2391                           	line	287
+  2392                           	
+  2393  07FA                     l913:	
+  2394  07FA  2C01               	goto	l3402
+  2395                           	
+  2396  07FB                     l911:	
+  2397  07FB  2C01               	goto	l3402
+  2398                           	
+  2399  07FC                     l909:	
+  2400  07FC  2C01               	goto	l3402
+  2401                           	
+  2402  07FD                     l980:	
+  2403                           	line	29
+  2404  07FD  2C01               	goto	l3402
+  2405                           	
+  2406  07FE                     l981:	
+  2407                           	line	288
+  2408                           	
+  2409  07FE                     l982:	
+  2410                           	global	start
+  2411  07FE  118A  2800         	ljmp	start
+  2412                           	opt stack 0
+  2413                           GLOBAL	__end_of_main
+  2414  0800                     	__end_of_main:
+  2415 ;; =============== function _main ends ============
+  2416                           
+  2417                           	signat	_main,88
+  2418                           	global	___awmod
+  2419                           psect	text112,local,class=CODE,delta=2
+  2420                           global __ptext112
+  2421  0394                     __ptext112:
+  2422                           
+  2423 ;; *************** function ___awmod *****************
+  2424 ;; Defined at:
+  2425 ;;		line 5 in file "C:\Program Files\HI-TECH Software\PICC\9.83\sources\awmod.c"
+  2426 ;; Parameters:    Size  Location     Type
+  2427 ;;  divisor         2    0[COMMON] int 
+  2428 ;;  dividend        2    2[COMMON] int 
+  2429 ;; Auto vars:     Size  Location     Type
+  2430 ;;  sign            1    6[COMMON] unsigned char 
+  2431 ;;  counter         1    5[COMMON] unsigned char 
+  2432 ;; Return value:  Size  Location     Type
+  2433 ;;                  2    0[COMMON] int 
+  2434 ;; Registers used:
+  2435 ;;		wreg, status,2, status,0
+  2436 ;; Tracked objects:
+  2437 ;;		On entry : 0/0
+  2438 ;;		On exit  : 0/0
+  2439 ;;		Unchanged: 0/0
+  2440 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  2441 ;;      Params:         4       0       0       0
+  2442 ;;      Locals:         2       0       0       0
+  2443 ;;      Temps:          1       0       0       0
+  2444 ;;      Totals:         7       0       0       0
+  2445 ;;Total ram usage:        7 bytes
+  2446 ;; Hardware stack levels used:    1
+  2447 ;; This function calls:
+  2448 ;;		Nothing
+  2449 ;; This function is called by:
+  2450 ;;		_main
+  2451 ;; This function uses a non-reentrant model
+  2452 ;;
+  2453                           psect	text112
+  2454                           	file	"C:\Program Files\HI-TECH Software\PICC\9.83\sources\awmod.c"
+  2455                           	line	5
+  2456                           	global	__size_of___awmod
+  2457  0066                     	__size_of___awmod	equ	__end_of___awmod-___awmod
+  2458                           	
+  2459  0394                     ___awmod:	
+  2460                           	opt	stack 7
+  2461                           ; Regs used in ___awmod: [wreg+status,2+status,0]
+  2462                           	line	8
+  2463                           	
+  2464  0394                     l3364:	
+  2465  0394  01F6               	clrf	(___awmod@sign)
+  2466                           	line	9
+  2467  0395  1FF3               	btfss	(___awmod@dividend+1),7
+  2468  0396  2B98               	goto	u2631
+  2469  0397  2B99               	goto	u2630
+  2470  0398                     u2631:
+  2471  0398  2BA2               	goto	l3368
+  2472  0399                     u2630:
+  2473                           	line	10
+  2474                           	
+  2475  0399                     l3366:	
+  2476  0399  09F2               	comf	(___awmod@dividend),f
+  2477  039A  09F3               	comf	(___awmod@dividend+1),f
+  2478  039B  0AF2               	incf	(___awmod@dividend),f
+  2479  039C  1903               	skipnz
+  2480  039D  0AF3               	incf	(___awmod@dividend+1),f
+  2481                           	line	11
+  2482  039E  01F6               	clrf	(___awmod@sign)
+  2483  039F  1403               	bsf	status,0
+  2484  03A0  0DF6               	rlf	(___awmod@sign),f
+  2485  03A1  2BA2               	goto	l3368
+  2486                           	line	12
+  2487                           	
+  2488  03A2                     l2052:	
+  2489                           	line	13
+  2490                           	
+  2491  03A2                     l3368:	
+  2492  03A2  1FF1               	btfss	(___awmod@divisor+1),7
+  2493  03A3  2BA5               	goto	u2641
+  2494  03A4  2BA6               	goto	u2640
+  2495  03A5                     u2641:
+  2496  03A5  2BAC               	goto	l3372
+  2497  03A6                     u2640:
+  2498                           	line	14
+  2499                           	
+  2500  03A6                     l3370:	
+  2501  03A6  09F0               	comf	(___awmod@divisor),f
+  2502  03A7  09F1               	comf	(___awmod@divisor+1),f
+  2503  03A8  0AF0               	incf	(___awmod@divisor),f
+  2504  03A9  1903               	skipnz
+  2505  03AA  0AF1               	incf	(___awmod@divisor+1),f
+  2506  03AB  2BAC               	goto	l3372
+  2507                           	
+  2508  03AC                     l2053:	
+  2509                           	line	15
+  2510                           	
+  2511  03AC                     l3372:	
+  2512  03AC  0871               	movf	(___awmod@divisor+1),w
+  2513  03AD  0470               	iorwf	(___awmod@divisor),w
+  2514  03AE  1903               	skipnz
+  2515  03AF  2BB1               	goto	u2651
+  2516  03B0  2BB2               	goto	u2650
+  2517  03B1                     u2651:
+  2518  03B1  2BE8               	goto	l3390
+  2519  03B2                     u2650:
+  2520                           	line	16
+  2521                           	
+  2522  03B2                     l3374:	
+  2523  03B2  01F5               	clrf	(___awmod@counter)
+  2524  03B3  1403               	bsf	status,0
+  2525  03B4  0DF5               	rlf	(___awmod@counter),f
+  2526                           	line	17
+  2527  03B5  2BC2               	goto	l3380
+  2528                           	
+  2529  03B6                     l2056:	
+  2530                           	line	18
+  2531                           	
+  2532  03B6                     l3376:	
+  2533  03B6  3001               	movlw	01h
+  2534                           	
+  2535  03B7                     u2665:
+  2536  03B7  1003               	clrc
+  2537  03B8  0DF0               	rlf	(___awmod@divisor),f
+  2538  03B9  0DF1               	rlf	(___awmod@divisor+1),f
+  2539  03BA  3EFF               	addlw	-1
+  2540  03BB  1D03               	skipz
+  2541  03BC  2BB7               	goto	u2665
+  2542                           	line	19
+  2543                           	
+  2544  03BD                     l3378:	
+  2545  03BD  3001               	movlw	(01h)
+  2546  03BE  00F4               	movwf	(??___awmod+0)+0
+  2547  03BF  0874               	movf	(??___awmod+0)+0,w
+  2548  03C0  07F5               	addwf	(___awmod@counter),f
+  2549  03C1  2BC2               	goto	l3380
+  2550                           	line	20
+  2551                           	
+  2552  03C2                     l2055:	
+  2553                           	line	17
+  2554                           	
+  2555  03C2                     l3380:	
+  2556  03C2  1FF1               	btfss	(___awmod@divisor+1),(15)&7
+  2557  03C3  2BC5               	goto	u2671
+  2558  03C4  2BC6               	goto	u2670
+  2559  03C5                     u2671:
+  2560  03C5  2BB6               	goto	l3376
+  2561  03C6                     u2670:
+  2562  03C6  2BC8               	goto	l3382
+  2563                           	
+  2564  03C7                     l2057:	
+  2565  03C7  2BC8               	goto	l3382
+  2566                           	line	21
+  2567                           	
+  2568  03C8                     l2058:	
+  2569                           	line	22
+  2570                           	
+  2571  03C8                     l3382:	
+  2572  03C8  0871               	movf	(___awmod@divisor+1),w
+  2573  03C9  0273               	subwf	(___awmod@dividend+1),w
+  2574  03CA  1D03               	skipz
+  2575  03CB  2BCE               	goto	u2685
+  2576  03CC  0870               	movf	(___awmod@divisor),w
+  2577  03CD  0272               	subwf	(___awmod@dividend),w
+  2578  03CE                     u2685:
+  2579  03CE  1C03               	skipc
+  2580  03CF  2BD1               	goto	u2681
+  2581  03D0  2BD2               	goto	u2680
+  2582  03D1                     u2681:
+  2583  03D1  2BD9               	goto	l3386
+  2584  03D2                     u2680:
+  2585                           	line	23
+  2586                           	
+  2587  03D2                     l3384:	
+  2588  03D2  0870               	movf	(___awmod@divisor),w
+  2589  03D3  02F2               	subwf	(___awmod@dividend),f
+  2590  03D4  0871               	movf	(___awmod@divisor+1),w
+  2591  03D5  1C03               	skipc
+  2592  03D6  03F3               	decf	(___awmod@dividend+1),f
+  2593  03D7  02F3               	subwf	(___awmod@dividend+1),f
+  2594  03D8  2BD9               	goto	l3386
+  2595                           	
+  2596  03D9                     l2059:	
+  2597                           	line	24
+  2598                           	
+  2599  03D9                     l3386:	
+  2600  03D9  3001               	movlw	01h
+  2601                           	
+  2602  03DA                     u2695:
+  2603  03DA  1003               	clrc
+  2604  03DB  0CF1               	rrf	(___awmod@divisor+1),f
+  2605  03DC  0CF0               	rrf	(___awmod@divisor),f
+  2606  03DD  3EFF               	addlw	-1
+  2607  03DE  1D03               	skipz
+  2608  03DF  2BDA               	goto	u2695
+  2609                           	line	25
+  2610                           	
+  2611  03E0                     l3388:	
+  2612  03E0  3001               	movlw	low(01h)
+  2613  03E1  02F5               	subwf	(___awmod@counter),f
+  2614  03E2  1D03               	btfss	status,2
+  2615  03E3  2BE5               	goto	u2701
+  2616  03E4  2BE6               	goto	u2700
+  2617  03E5                     u2701:
+  2618  03E5  2BC8               	goto	l3382
+  2619  03E6                     u2700:
+  2620  03E6  2BE8               	goto	l3390
+  2621                           	
+  2622  03E7                     l2060:	
+  2623  03E7  2BE8               	goto	l3390
+  2624                           	line	26
+  2625                           	
+  2626  03E8                     l2054:	
+  2627                           	line	27
+  2628                           	
+  2629  03E8                     l3390:	
+  2630  03E8  0876               	movf	(___awmod@sign),w
+  2631  03E9  1D03               	skipz
+  2632  03EA  2BEC               	goto	u2710
+  2633  03EB  2BF2               	goto	l3394
+  2634  03EC                     u2710:
+  2635                           	line	28
+  2636                           	
+  2637  03EC                     l3392:	
+  2638  03EC  09F2               	comf	(___awmod@dividend),f
+  2639  03ED  09F3               	comf	(___awmod@dividend+1),f
+  2640  03EE  0AF2               	incf	(___awmod@dividend),f
+  2641  03EF  1903               	skipnz
+  2642  03F0  0AF3               	incf	(___awmod@dividend+1),f
+  2643  03F1  2BF2               	goto	l3394
+  2644                           	
+  2645  03F2                     l2061:	
+  2646                           	line	29
+  2647                           	
+  2648  03F2                     l3394:	
+  2649  03F2  0873               	movf	(___awmod@dividend+1),w
+  2650  03F3  01F1               	clrf	(?___awmod+1)
+  2651  03F4  07F1               	addwf	(?___awmod+1)
+  2652  03F5  0872               	movf	(___awmod@dividend),w
+  2653  03F6  01F0               	clrf	(?___awmod)
+  2654  03F7  07F0               	addwf	(?___awmod)
+  2655                           
+  2656  03F8  2BF9               	goto	l2062
+  2657                           	
+  2658  03F9                     l3396:	
+  2659                           	line	30
+  2660                           	
+  2661  03F9                     l2062:	
+  2662  03F9  0008               	return
+  2663                           	opt stack 0
+  2664                           GLOBAL	__end_of___awmod
+  2665  03FA                     	__end_of___awmod:
+  2666 ;; =============== function ___awmod ends ============
+  2667                           
+  2668                           	signat	___awmod,8314
+  2669                           	global	_init_hardware
+  2670                           psect	text113,local,class=CODE,delta=2
+  2671                           global __ptext113
+  2672  037E                     __ptext113:
+  2673                           
+  2674 ;; *************** function _init_hardware *****************
+  2675 ;; Defined at:
+  2676 ;;		line 291 in file "E:\cPrograms\really not pr0n\finalfinal.c"
+  2677 ;; Parameters:    Size  Location     Type
+  2678 ;;		None
+  2679 ;; Auto vars:     Size  Location     Type
+  2680 ;;		None
+  2681 ;; Return value:  Size  Location     Type
+  2682 ;;		None               void
+  2683 ;; Registers used:
+  2684 ;;		wreg, status,2
+  2685 ;; Tracked objects:
+  2686 ;;		On entry : 0/0
+  2687 ;;		On exit  : 0/0
+  2688 ;;		Unchanged: 0/0
+  2689 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  2690 ;;      Params:         0       0       0       0
+  2691 ;;      Locals:         0       0       0       0
+  2692 ;;      Temps:          0       0       0       0
+  2693 ;;      Totals:         0       0       0       0
+  2694 ;;Total ram usage:        0 bytes
+  2695 ;; Hardware stack levels used:    1
+  2696 ;; This function calls:
+  2697 ;;		Nothing
+  2698 ;; This function is called by:
+  2699 ;;		_main
+  2700 ;; This function uses a non-reentrant model
+  2701 ;;
+  2702                           psect	text113
+  2703                           	file	"E:\cPrograms\really not pr0n\finalfinal.c"
+  2704                           	line	291
+  2705                           	global	__size_of_init_hardware
+  2706  0016                     	__size_of_init_hardware	equ	__end_of_init_hardware-_init_hardware
+  2707                           	
+  2708  037E                     _init_hardware:	
+  2709                           	opt	stack 7
+  2710                           ; Regs used in _init_hardware: [wreg+status,2]
+  2711                           	line	293
+  2712                           	
+  2713  037E                     l3354:	
+  2714                           ;finalfinal.c: 293: ANSEL = 0b00000000;
+  2715  037E  1283               	bcf	status, 5	;RP0=0, select bank2
+  2716  037F  1703               	bsf	status, 6	;RP1=1, select bank2
+  2717  0380  019E               	clrf	(286)^0100h	;volatile
+  2718                           	line	294
+  2719                           	
+  2720  0381                     l3356:	
+  2721                           ;finalfinal.c: 294: ANSELH = 0b00001100;
+  2722  0381  300C               	movlw	(0Ch)
+  2723  0382  009F               	movwf	(287)^0100h	;volatile
+  2724                           	line	296
+  2725                           	
+  2726  0383                     l3358:	
+  2727                           ;finalfinal.c: 296: ADCON0=0B00101101;
+  2728  0383  302D               	movlw	(02Dh)
+  2729  0384  1283               	bcf	status, 5	;RP0=0, select bank0
+  2730  0385  1303               	bcf	status, 6	;RP1=0, select bank0
+  2731  0386  009F               	movwf	(31)	;volatile
+  2732                           	line	300
+  2733                           	
+  2734  0387                     l3360:	
+  2735                           ;finalfinal.c: 300: TRISA = 0b00100000;
+  2736  0387  3020               	movlw	(020h)
+  2737  0388  1683               	bsf	status, 5	;RP0=1, select bank1
+  2738  0389  1303               	bcf	status, 6	;RP1=0, select bank1
+  2739  038A  0085               	movwf	(133)^080h	;volatile
+  2740                           	line	301
+  2741                           	
+  2742  038B                     l3362:	
+  2743                           ;finalfinal.c: 301: TRISB = 0b00110000;
+  2744  038B  3030               	movlw	(030h)
+  2745  038C  0086               	movwf	(134)^080h	;volatile
+  2746                           	line	302
+  2747                           ;finalfinal.c: 302: TRISC = 0b00000000;
+  2748  038D  0187               	clrf	(135)^080h	;volatile
+  2749                           	line	305
+  2750                           ;finalfinal.c: 305: PORTA = 0b00000000;
+  2751  038E  1283               	bcf	status, 5	;RP0=0, select bank0
+  2752  038F  1303               	bcf	status, 6	;RP1=0, select bank0
+  2753  0390  0185               	clrf	(5)	;volatile
+  2754                           	line	306
+  2755                           ;finalfinal.c: 306: PORTB = 0b00000000;
+  2756  0391  0186               	clrf	(6)	;volatile
+  2757                           	line	307
+  2758                           ;finalfinal.c: 307: PORTC = 0b00000000;
+  2759  0392  0187               	clrf	(7)	;volatile
+  2760                           	line	310
+  2761                           	
+  2762  0393                     l985:	
+  2763  0393  0008               	return
+  2764                           	opt stack 0
+  2765                           GLOBAL	__end_of_init_hardware
+  2766  0394                     	__end_of_init_hardware:
+  2767 ;; =============== function _init_hardware ends ============
+  2768                           
+  2769                           	signat	_init_hardware,88
+  2770                           psect	text114,local,class=CODE,delta=2
+  2771                           global __ptext114
+  2772  0000                     __ptext114:
+  2773                           	global	btemp
+  2774  007E                     	btemp set 07Eh
+  2775                           
+  2776                           	DABS	1,126,2	;btemp
+  2777                           	global	wtemp0
+  2778  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                   Mon Jan 07 10:29:32 2019
+
+                    _RD 0C60                      _WR 0C61                     l901 0401                     l910 0460  
+                   l902 040A                     l911 07FB                     l903 040A                     l920 07F6  
+                   l912 047A                     l904 040F                     l913 07FA                     l921 0502  
+                   l905 041F                     l914 07F9                     l922 07F5                     l930 0571  
+                   l906 041F                     l931 0571                     l923 0536                     l915 04A6  
+                   l907 0424                     l916 07F8                     l924 07F4                     l940 05EF  
+                   l932 0576                     l908 0446                     l909 07FC                     l925 0689  
+                   l941 05FF                     l933 05A8                     l917 04C6                     l918 07F7  
+                   l950 0678                     l942 05FF                     l934 05C4                     l926 0554  
+                   l951 0653                     l935 0645                     l943 0604                     l927 055C  
+                   l919 04E6                     l952 0688                     l944 0633                     l928 055C  
+                   l953 07F3                     l961 06C8                     l937 05D2                     l929 0561  
+                   l962 07F2                     l970 074B                     l954 06CF                     l946 061A  
+                   l938 05EA                     l971 074A                     l963 0705                     l955 06B9  
+                   l947 0647                     l939 05EA                     l980 07FD                     l972 07F0  
+                   l964 06F8                     l948 0644                     l981 07FE                     l973 077C  
+                   l965 0704                     l957 06B4                     l949 0646                     l982 07FE  
+                   l974 07EF                     l966 0703                     l958 06CE                     l967 07F1  
+                   l975 079C                     l959 06CD                     l976 07EE                     l968 074C  
+                   l985 0393                     l977 07CC                     l969 073E                     l978 07ED  
+                   l979 07EC                     _GIE 005F                     _RC0 0038                     _RC1 0039  
+                   _RC3 003B                     _RC4 003C                     _RC5 003D                     _RC6 003E  
+                   _RC7 003F            ___awmod@sign 0076                    l2060 03E7                    l2052 03A2  
+                  l2061 03F2                    l2053 03AC                    l2062 03F9                    l2054 03E8  
+                  l2055 03C2                    l2056 03B6                    l2057 03C7                    l2058 03C8  
+                  l2059 03D9                    l3400 03FD                    l3410 0417                    l3402 0401  
+                  l3500 056F                    l3420 043E                    l3412 041D                    l3404 0404  
+                  l3510 059E                    l3502 0576                    l3430 0460                    l3422 0446  
+                  l3414 0424                    l3406 0408                    l3360 0387                    l3600 071F  
+                  l3520 05CA                    l3512 05AE                    l3504 057E                    l3440 0480  
+                  l3432 0466                    l3424 044C                    l3416 0432                    l3408 040F  
+                  l3362 038B                    l3354 037E                    l3370 03A6                    l3610 073E  
+                  l3602 0720                    l3530 05F7                    l3522 05D9                    l3514 05B7  
+                  l3506 0584                    l3450 04A6                    l3442 0488                    l3434 046E  
+                  l3426 0454                    l3418 043A                    l3356 0381                    l3380 03C2  
+                  l3372 03AC                    l3364 0394                    l3620 0763                    l3612 0745  
+                  l3604 0721                    l3540 0632                    l3532 05FD                    l3524 05E2  
+                  l3516 05BA                    l3508 0598                    l3460 04D4                    l3452 04AD  
+                  l3444 0489                    l3436 0472                    l3428 0458                    l3358 0383  
+                  l3382 03C8                    l3374 03B2                    l3390 03E8                    l3366 0399  
+                  l3622 0766                    l3630 077C                    l3606 0722                    l3614 074C  
+                  l3550 064F                    l3542 0633                    l3534 0604                    l3526 05E8  
+                  l3518 05C4                    l3470 0509                    l3462 04E6                    l3454 04B4  
+                  l3446 0490                    l3438 047A                    l3392 03EC                    l3384 03D2  
+                  l3376 03B6                    l3368 03A2                    l3640 07AA                    l3632 0783  
+                  l3624 0767                    l3616 0753                    l3608 0739                    l3560 0673  
+                  l3552 0653                    l3544 063B                    l3536 0612                    l3528 05EF  
+                  l3480 0522                    l3472 0510                    l3464 04ED                    l3456 04C6  
+                  l3448 0495                    l3394 03F2                    l3386 03D9                    l3378 03BD  
+                  l3650 07B9                    l3642 07B3                    l3634 078A                    l3626 0768  
+                  l3618 075A                    l3570 06AD                    l3554 0656                    l3562 0678  
+                  l3546 0647                    l3538 0620                    l3490 0550                    l3482 0523  
+                  l3474 051D                    l3466 04F4                    l3458 04CD                    l3396 03F9  
+                  l3388 03E0                    l3644 07B6                    l3652 07CC                    l3636 079C  
+                  l3628 0769                    l3572 06B4                    l3580 06CF                    l3556 0663  
+                  l3548 064A                    l3492 0554                    l3564 0689                    l3476 0520  
+                  l3484 0536                    l3468 0502                    l3654 07D3                    l3646 07B7  
+                  l3638 07A3                    l3590 06FE                    l3582 06D6                    l3574 06B9  
+                  l3566 0690                    l3558 0666                    l3494 055A                    l3486 053D  
+                  l3478 0521                    l3398 03FA                    l3656 07DA                    l3648 07B8  
+                  l3584 06DD                    l3592 0705                    l3576 06C0                    l3568 0697  
+                  l3496 0561                    l3488 0544                    l3594 070C                    l3586 06F3  
+                  l3578 06C8                    l3498 0569                    l3596 0713                    l3588 06F8  
+                  l3598 071C                    u3000 06B3                    u3001 06B2                    u3010 06C0  
+                  u3011 06BF                    u3100 0783                    u3020 06C7                    u3101 0782  
+                  u3021 06C6                    u3110 07A3                    u3030 06D6                    u3111 07A2  
+                  u3031 06D5                    u3120 07D3                    u3040 06F3                    u3121 07D2  
+                  u3041 06F2                    u3050 06FE                    u3051 06FD                    u3060 070C  
+                  u3061 070B                    u3070 0739                    u3071 0738                    u3207 04DA  
+                  u3080 0745                    u3081 0744                    u3217 04F8                    u3137 0415  
+                  u3090 0753                    u3091 0752                    u3307 05DD                    u3227 0516  
+                  u3147 042A                    u2700 03E6                    u2701 03E5                    u3317 05F5  
+                  u3237 052A                    u3157 0440                    u2710 03EC                    u2630 0399  
+                  u2631 0398                    u3407 0717                    u3327 060A                    u3247 054A  
+                  u3167 045A                    u2640 03A6                    u2800 0480                    u2720 040E  
+                  u2641 03A5                    u3417 0729                    u3337 0626                    u3257 0567  
+                  u2801 047F                    u3177 0474                    u2721 040D                    u2650 03B2  
+                  u2810 0488                    u2730 0423                    u2651 03B1                    u3427 075E  
+                  u3347 063E                    u3267 057C                    u3187 049B                    u2811 0487  
+                  u2731 0422                    u2900 0598                    u2820 0490                    u2740 0432  
+                  u3437 0770                    u3357 064C                    u3277 05A2                    u2901 0597  
+                  u3197 04BA                    u2821 048F                    u2741 0431                    u2670 03C6  
+                  u2910 05CA                    u2830 04AD                    u2750 043A                    u2671 03C5  
+                  u3447 0790                    u3367 065C                    u2911 05C9                    u3287 05B2  
+                  u2831 04AC                    u2751 0439                    u2680 03D2                    u2920 05D2  
+                  u2840 04CD                    u2760 044C                    u2681 03D1                    u2665 03B7  
+                  u3457 07AE                    u3377 066C                    u2921 05D1                    u3297 05BE  
+                  u2841 04CC                    u2761 044B                    u2930 05EE                    u2850 04ED  
+                  u2770 0454                    u3467 07C0                    u3387 069D                    u2931 05ED  
+                  u2851 04EC                    u2771 0453                    u2940 0603                    u2860 0509  
+                  u2780 0466                    u2685 03CE                    u3477 07E0                    u3397 06E3  
+                  u2941 0602                    u2861 0508                    u2781 0465                    u2950 0612  
+                  u2870 053D                    u2790 046E                    u2695 03DA                    u2951 0611  
+                  u2871 053C                    u2791 046D                    u2960 061A                    u2880 0560  
+                  u2961 0619                    u2881 055F                    u2970 0687                    u2890 0575  
+                  u2971 0686                    u2891 0574                    u2980 0690                    u2981 068F  
+                  u2990 06AD                    u2991 06AC                    u2975 0683                    _WREN 0C62  
+                  _main 03FA                    btemp 007E                    start 0000                   ?_main 0070  
+                 _EEADR 010D         __end_of___awmod 03FA                   _CARRY 0018                   _ANSEL 011E  
+                 _PORTA 0005                   _PORTB 0006                   _PORTC 0007                   _TRISA 0085  
+                 _TRISB 0086                   _TRISC 0087                   _lines 0020                   _timer 0023  
+                 status 0003                   wtemp0 007E            __end_of_main 0800                  ??_main 0077  
+                _ADCON0 001F                  _ADRESH 001E                  _EEDATA 010C                  _EECON1 018C  
+                _EECON2 018D                  _ANSELH 011F  __size_of_init_hardware 0016               ??___awmod 0074  
+       ___awmod@divisor 0070         ___awmod@counter 0075            __pdataCOMMON 007B          __pcstackCOMMON 0070  
+         _init_hardware 037E              __pbssBANK0 0020              __pmaintext 03FA          ?_init_hardware 0070  
+               _GO_DONE 00F9              _leftSensor 0022                 ___awmod 0394                 _onBlack 007B  
+      ___awmod@dividend 0072    end_of_initialization 037B         ??_init_hardware 0070           __pidataCOMMON 036C  
+   start_initialization 036E             __pbssCOMMON 007D               __ptext112 0394               __ptext113 037E  
+             __ptext114 0000                ?___awmod 0070              _ADCON0bits 001F               main@index 007A  
+      __size_of___awmod 0066   __end_of_init_hardware 0394           __size_of_main 0406             _rightSensor 007D  
