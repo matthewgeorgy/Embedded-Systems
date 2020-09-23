@@ -28,5 +28,5 @@ You'll notice that some of the code is quite hideous (eg. several if/else if
 statements instead of a switch statement). This is the class where we first
 learned C and did any kind of programming. Furthermore, the lessons we 
 followed were simple and didn't cover various topics. The focus of the 
-project was more so understanding how to directly access and talk to 
-hardware, rather than writing optimal, fast, and efficient code.
+project was more about understanding how to directly access and talk to 
+hardware, rather than writing optimal, fast and efficient code.
