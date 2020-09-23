@@ -11,7 +11,9 @@ There are 3 folders:
 
 "c" contains the actual source code that was written in C. These are the actual
 files that we wrote, and there are clearly many of them. This project was 1.5 months 
-long, requiring us to write different source codes to accomplish different tasks.
+long, requiring us to write different source codes to accomplish different tasks. 
+Hence, the source code for one file might look completely different from the source
+code in another file.
 
 "lst" contains the assembly code (compiled from the C source code files). 
 Not all of the C files have a corresponding .lst file, and not all .lst files
