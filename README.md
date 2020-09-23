@@ -1,6 +1,8 @@
 # Embedded-Systems
 Source code for TEJ3M1 Robot (Gr.11 Computer Engineering)
 
+Here is a video showcasing the actual robot itself: https://youtu.be/aZE8ZVy-puc
+
 Here you can find the source code that was written for my embedded systems group project.
 There are 3 folders:
 - c
