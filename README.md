@@ -21,7 +21,7 @@ were written by me or my group members.
 
 "map" contains the linker files for the compiler(???). I think that's what it is
 just from looking at it, but we never actually directly accessed and modified 
-these file while working on the project.
+these files while working on the project.
 
 
 You'll notice that some of the code is quite hideous (eg. several if/else if 
